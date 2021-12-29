@@ -5,6 +5,7 @@ import '../App.css';
 
 const FunctionTestPage = () => {
 
+    const [balance, setBalance] = useState(0);
     const [bet, setBet] = useState();
     const [currentBets, setCurrentBets] = useState([]);
     const [nameText, setNameText] = useState('');
@@ -13,6 +14,7 @@ const FunctionTestPage = () => {
     const [die2, setDie2] = useState();
     const [p1, setP1] = useState();
     const [p2, setP2] = useState();
+    const [rollHistory, setRollHistory] = useState([]);
 
     let pips1 = [];
     let pips2 = [];
@@ -42,6 +44,7 @@ const FunctionTestPage = () => {
         }
         setP1(pips1);
         setP2(pips2);
+        setRollHistory(oldRollHistory => [...oldRollHistory, [pips1,pips2]]);
     };
 
     const handleAddBet = () => {
@@ -113,10 +116,19 @@ const FunctionTestPage = () => {
                         <div className='data-display'>
                             {
                                 <>
-                                    <h2>{bet.betName}</h2>
-                                    <h3>Odds: &nbsp;{bet.odds.toFixed(1)}:1</h3>
-                                    <h4>Payout: &nbsp;{bet.payout.toFixed(1)}</h4>
-                                    <h5>Wager Amount: &nbsp;{bet.wager}</h5>
+                                    <p className='display-title'>{bet.betName}</p>
+                                    <span>
+                                        <p>Odds: </p>
+                                        <p>&nbsp;{bet.odds.toFixed(1)}:1</p>
+                                    </span>
+                                    <span>
+                                        <p>Payout: </p>
+                                        <p>&nbsp;{bet.payout.toFixed(1)}</p>
+                                    </span>
+                                    <span>
+                                        <p>Wager Amount: </p>
+                                        <p>&nbsp;{bet.wager}</p>
+                                    </span>
                                 </>
                             }
                         </div>
@@ -125,20 +137,43 @@ const FunctionTestPage = () => {
 
             </div>
 
-            <div className='current-bets-wrapper'>
-                
-                {currentBets && currentBets.map((bet) => {
-                    return (
-                        <div className='current-bet-details'>
-                            <h2>{bet.betName}</h2>
-                            <p>Odds: &nbsp;{bet.odds.toFixed(1)}:1</p>
-                            <p>Payout: &nbsp;{bet.payout.toFixed(1)}</p>
-                            <p>Wager Amount: &nbsp;{bet.wager}</p>
-                        </div>
-                    )
-                })}
+            <div className='game-info-wrapper'>
 
+                <div className='bet-history-wrapper'>
+                    <p className='history-title'>Roll History</p> 
+                    {rollHistory && rollHistory.map((roll, index) => {
+                        return (
+                            <div className='current-bet-details' key={index}>
+                                <div className='die-face'>
+                                    {roll[0]}
+                                </div>
+                                <div className='die-face'>
+                                    {roll[1]}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <div className='current-bets-wrapper'>
+                    <p className='history-title'>Bet History</p>
+                    {currentBets && currentBets.map((bet, index) => {
+                        return (
+                            <div className='current-bet-details' key={index}>
+                                <h2>{bet.betName}</h2>
+                                <p>Odds: &nbsp;{bet.odds.toFixed(1)}:1</p>
+                                <p>Payout: &nbsp;{bet.payout.toFixed(1)}</p>
+                                <p>Wager Amount: &nbsp;{bet.wager}</p>
+                            </div>
+                        )
+                    })}
+
+                </div>
+
+                
             </div>
+
+           
         </div>
     )
 };

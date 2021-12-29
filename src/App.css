@@ -14,6 +14,7 @@ body {
 .page-wrapper {
   display: flex;
   gap: 10rem;
+  justify-content: space-between;
 }
 
 .bet-btn-wrapper {
@@ -49,17 +50,28 @@ body {
 }
 
 .data-wrapper {
-  border: 1px solid rgb(255, 255, 255, 0.1);
   color: #ddd;
   padding: 1rem 1.5rem;
 }
 
 .data-display {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
   min-width: 8rem;
   text-align: center;
+}
+
+.data-display span {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  grid-column: 1 / -1;
+  text-transform: uppercase;
 }
 
 .green-btn {
@@ -131,9 +143,42 @@ body {
   grid-area: g;
 }
 
+.game-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4% 0 2%;
+}
+
+.bet-history-wrapper,
+.current-bets-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 20%;
+}
+
+.bet-history-wrapper {
+  justify-content: center;
+}
+
+.history-title {
+  color: #ddd;
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.current-bets-wrapper {
+
+}
+
 .current-bet-details {
+  background-color: rgb(38, 38, 46);
+  border: 1px solid rgba(221, 221, 221, 0.26);
+  border-radius: 8px;
   color: #ddd;
   display: flex;
   gap: 1.6rem;
-  padding-left: 1rem;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
 }
