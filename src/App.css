@@ -1,5 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: rgb(48, 48, 54);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .page-wrapper {
@@ -51,4 +60,80 @@ body {
   gap: 1rem;
   min-width: 8rem;
   text-align: center;
+}
+
+.green-btn {
+  border: 1px solid rgb(7, 161, 7);
+  color: rgb(7, 161, 7);
+  font-size: 1.2rem;
+  width: 90%;
+}
+
+.roll-btn:hover {
+  background-color: rgba(18, 192, 18, 0.199);
+  color: rgb(14, 233, 14);
+}
+
+.roll-result-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roll-result {
+  display: flex;
+  gap: 0.25rem;
+  padding: 2rem 0.5rem 1rem 0.5rem;
+}
+
+.die-face {
+  align-items: center;
+  background-color: #ddd;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  color: #222;
+  display: grid;
+  font-size: 2.3rem;
+  font-weight: 900;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-template-areas: 
+    "a . c"
+    "e g f"
+    "d . b";
+  justify-items: center;
+  line-height: 1rem;
+  min-height: 60px;
+  min-width: 60px;
+  padding: 0.3rem;
+}
+
+.pip:nth-child(2) {
+  grid-area: b;
+}
+
+.pip:nth-child(3) {
+  grid-area: c;
+}
+
+.pip:nth-child(4) {
+  grid-area: d;
+}
+
+.pip:nth-child(5) {
+  grid-area: e;
+}
+
+.pip:nth-child(6) {
+  grid-area: f;
+}
+
+.pip:nth-child(odd):last-child {
+  grid-area: g;
+}
+
+.current-bet-details {
+  color: #ddd;
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 1rem;
 }
