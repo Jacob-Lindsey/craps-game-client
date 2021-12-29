@@ -8,29 +8,50 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
 .page-wrapper {
-  display: flex;
-  gap: 10rem;
-  justify-content: space-between;
+/*   background-color: rgb(36, 36, 41);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.425); */
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 25% 1fr;
+  padding-bottom: 1.6rem;
+  width: 100%;
 }
 
-.bet-btn-wrapper {
+.controls-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem 0 1rem 1rem;
-  width: 8rem;
+  padding-top: 5rem;
+}
+
+.play-field-wrapper {
+  background-image: url(../public/Craps_table_layout.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bet-btn-wrapper {
+  background-color: rgb(51, 51, 59);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.253);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  padding: 1rem 0;
+  position: absolute;
+  width: 100%;
 }
 
 .bet-btn {
   background-color: transparent;
-  border: 1px solid #ddd;
+  border: none;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: 0.75rem;
   transition: all 0.2s ease;
 }
 
@@ -53,6 +74,14 @@ body {
   color: #ddd;
   padding: 1rem 1.5rem;
 }
+
+.data-wrapper,
+.roll-result-wrapper,
+.wager-wrapper {
+  background-color: rgb(36, 36, 41);
+  border-radius: 12px;
+}
+
 
 .data-display {
   display: grid;
@@ -145,7 +174,7 @@ body {
 
 .game-info-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1rem 4% 0 2%;
 }
 
@@ -174,7 +203,7 @@ body {
 
 .current-bet-details {
   background-color: rgb(38, 38, 46);
-  border: 1px solid rgba(221, 221, 221, 0.26);
+  border: 1px solid rgba(0, 0, 0, 0.164);
   border-radius: 8px;
   color: #ddd;
   display: flex;
