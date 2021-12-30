@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { createTheme, ThemeProvider, styled } from '@mui/system';
+import { Tooltip } from '@mui/material';
 import DieFace from './DieFace';
 import BetHistory from './BetHistory';
 import RollHistory from './RollHistory';
@@ -23,6 +25,29 @@ const FunctionTestPage = () => {
         console.log('x: ', xPos, 'y: ', yPos);
     }
 
+    const defaultTheme = createTheme();
+    const theme = createTheme({
+        components: {
+            MuiTooltip: {
+                styleOverrides: {
+                    tooltip: {
+                        fontSize: "2em",
+                        color: "white",
+                        backgroundColor: "blue"
+                    }
+                }
+            }
+        }
+    });
+
+    const BlueTooltip = styled(({ className, ...props }) => (
+        <Tooltip {...props} componentsProps={{ tooltip: { className: className } }} />
+    ))(`
+        color: white;
+        background-color: blue;
+        font-size: 1.5em;
+    `);
+
     return (
         <div className='container'>
             <div className='bet-btn-wrapper'>
@@ -41,7 +66,9 @@ const FunctionTestPage = () => {
             <div className='page-wrapper'>
                 <div className='page-top'>
                     <div className='play-field-wrapper card'>
-                        <img src='/Craps_table_layout.png' alt='table-image' onMouseMove={(e) => relCoords(e)}/>
+                        <BlueTooltip disableFocusListener disableTouchListener followCursor title='Sample Tooltip Text'>
+                            <img src='/Craps_table_layout.png' alt='' onMouseMove={(e) => relCoords(e)}/>
+                        </BlueTooltip>
                     </div>
                     <div className='game-controls-wrapper'>
                         <WagerInput
