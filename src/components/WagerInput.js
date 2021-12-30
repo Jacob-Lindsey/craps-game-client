@@ -1,7 +1,5 @@
 const WagerInput = (props) => {
 
-    const nameText = props.nameText;
-    const setNameText = props.setNameText;
     const bet = props.bet;
     const setCurrentBets = props.setCurrentBets;
     const wagerAmount = props.wagerAmount;
@@ -26,12 +24,7 @@ const WagerInput = (props) => {
 
     return (
         <div className='wager-wrapper'>
-            <input 
-                placeholder='Name'
-                type='text'
-                value={nameText} 
-                onChange={(e) => setNameText(e.target.value)}
-            />
+            <div className='card-header'>Wager</div>
             <input
                 placeholder='Wager'
                 type='tel'

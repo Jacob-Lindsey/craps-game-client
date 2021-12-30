@@ -4,6 +4,11 @@
 
 body {
   background-color: rgb(48, 48, 54);
+  overflow: hidden;
+}
+
+.card {
+  box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.35);
 }
 
 .container {
@@ -14,25 +19,56 @@ body {
 .page-wrapper {
 /*   background-color: rgb(36, 36, 41);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.425); */
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  grid-template-columns: 25% 1fr;
   padding-bottom: 1.6rem;
   width: 100%;
 }
 
-.controls-wrapper {
-  display: flex;
-  flex-direction: column;
+.page-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   gap: 1rem;
-  padding-top: 5rem;
+  padding: 6rem 1.5rem 0 1.5rem;
+}
+
+.page-bottom {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1.5rem;
 }
 
 .play-field-wrapper {
+  background-color: rgb(38, 38, 46);
   background-image: url(../public/Craps_table_layout.png);
-  background-position: right center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+  border: 12px solid rgb(38, 38, 46);
+  border-radius: 12px;
+  min-height: 30rem;
+  position: relative;
+}
+
+.game-controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card-header {
+  background-color: rgb(68, 68, 88);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.253);
+  color: #eee;
+  padding: 1rem 0.5rem;
+  position: sticky;
+  text-align: center;
+  top: 0;
+  width: 100%;
 }
 
 .bet-btn-wrapper {
@@ -51,7 +87,7 @@ body {
   border: none;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  padding: 0.75rem;
+  padding: 0.5rem 0;
   transition: all 0.2s ease;
 }
 
@@ -60,14 +96,16 @@ body {
 }
 
 .wager-wrapper {
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding-top: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .wager-wrapper input {
   padding: 0.5rem 0.25rem;
+  width: 90%;
 }
 
 .data-wrapper {
@@ -76,7 +114,7 @@ body {
 }
 
 .data-wrapper,
-.roll-result-wrapper,
+.roll-wrapper,
 .wager-wrapper {
   background-color: rgb(36, 36, 41);
   border-radius: 12px;
@@ -106,8 +144,7 @@ body {
 .green-btn {
   border: 1px solid rgb(7, 161, 7);
   color: rgb(7, 161, 7);
-  font-size: 1.2rem;
-  width: 90%;
+  width: 75%;
 }
 
 .roll-btn:hover {
@@ -115,16 +152,17 @@ body {
   color: rgb(14, 233, 14);
 }
 
-.roll-result-wrapper {
+.roll-wrapper {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 .roll-result {
   display: flex;
-  gap: 0.25rem;
-  padding: 2rem 0.5rem 1rem 0.5rem;
+  gap: 1rem;
 }
 
 .die-face {
@@ -143,8 +181,8 @@ body {
     "d . b";
   justify-items: center;
   line-height: 1rem;
-  min-height: 60px;
-  min-width: 60px;
+  height: 60px;
+  width: 60px;
   padding: 0.3rem;
 }
 
@@ -172,33 +210,15 @@ body {
   grid-area: g;
 }
 
-.game-info-wrapper {
-  display: flex;
-  justify-content: space-around;
-  padding: 1rem 4% 0 2%;
-}
-
-.bet-history-wrapper,
-.current-bets-wrapper {
+.history-wrapper {
+  background-color: rgb(36, 36, 41);
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  min-width: 20%;
-}
-
-.bet-history-wrapper {
-  justify-content: center;
-}
-
-.history-title {
-  color: #ddd;
-  font-size: 1.2rem;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.current-bets-wrapper {
-
+  max-height: 30rem;
+  min-height: 30rem;
+  overflow-y: overlay;
 }
 
 .current-bet-details {
@@ -210,4 +230,21 @@ body {
   gap: 1.6rem;
   justify-content: center;
   padding: 0.5rem 0.75rem;
+}
+
+.history-wrapper::-webkit-scrollbar-track {	
+	background-color: rgb(23, 23, 26);
+  border-radius: 12px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.history-wrapper::-webkit-scrollbar {
+	background-color: rgb(48, 48, 54);
+  width: 10px;
+}
+
+.history-wrapper::-webkit-scrollbar-thumb {
+	background-color: rgb(36, 36, 49);
+  border-radius: 12px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 }

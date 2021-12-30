@@ -3,8 +3,8 @@ const BetHistory = (props) => {
     const currentBets = props.currentBets;
 
     return (
-        <div className='current-bets-wrapper'>
-            <p className='history-title'>Current Bets</p>
+        <div className='history-wrapper card'>
+            <div className='card-header'>Current Bets</div>
                 {currentBets && currentBets.slice(0).reverse().map((bet, index) => {
                     return (
                         <div className='current-bet-details' key={index}>
