@@ -14,7 +14,14 @@ const FunctionTestPage = () => {
     const [bet, setBet] = useState();
     const [currentBets, setCurrentBets] = useState([]);
     const [wagerAmount, setWagerAmount] = useState(0);
-    const [rollHistory, setRollHistory] = useState([]);   
+    const [rollHistory, setRollHistory] = useState([]);
+
+    const relCoords = (e) => {
+        const bounds = e.target.getBoundingClientRect();
+        const xPos = e.clientX - bounds.left;
+        const yPos = e.clientY - bounds.top;
+        console.log('x: ', xPos, 'y: ', yPos);
+    }
 
     return (
         <div className='container'>
@@ -34,7 +41,7 @@ const FunctionTestPage = () => {
             <div className='page-wrapper'>
                 <div className='page-top'>
                     <div className='play-field-wrapper card'>
-                        
+                        <img src='/Craps_table_layout.png' alt='table-image' onMouseMove={(e) => relCoords(e)}/>
                     </div>
                     <div className='game-controls-wrapper'>
                         <WagerInput
