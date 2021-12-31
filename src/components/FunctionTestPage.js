@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { createTheme, ThemeProvider, styled } from '@mui/system';
-import { Tooltip } from '@mui/material';
+import { useState, useEffect, useRef } from 'react';
+import TableLayout from './TableLayout';
 import DieFace from './DieFace';
 import BetHistory from './BetHistory';
 import RollHistory from './RollHistory';
@@ -17,36 +16,23 @@ const FunctionTestPage = () => {
     const [currentBets, setCurrentBets] = useState([]);
     const [wagerAmount, setWagerAmount] = useState(0);
     const [rollHistory, setRollHistory] = useState([]);
+    /* const [boardWidth, setBoardWidth] = useState(0);
+    const [boardHeight, setBoardHeight] = useState(0); */
+
+    /* const ref = useRef(null);
+    useEffect(() => {
+        if (ref.current) {
+            setBoardWidth(ref.current.offsetWidth);
+            setBoardHeight(ref.current.offsetHeight);
+        }
+    },[boardWidth,boardHeight]);
 
     const relCoords = (e) => {
         const bounds = e.target.getBoundingClientRect();
         const xPos = e.clientX - bounds.left;
         const yPos = e.clientY - bounds.top;
-        console.log('x: ', xPos, 'y: ', yPos);
-    }
-
-    const defaultTheme = createTheme();
-    const theme = createTheme({
-        components: {
-            MuiTooltip: {
-                styleOverrides: {
-                    tooltip: {
-                        fontSize: "2em",
-                        color: "white",
-                        backgroundColor: "blue"
-                    }
-                }
-            }
-        }
-    });
-
-    const BlueTooltip = styled(({ className, ...props }) => (
-        <Tooltip {...props} componentsProps={{ tooltip: { className: className } }} />
-    ))(`
-        color: white;
-        background-color: blue;
-        font-size: 1.5em;
-    `);
+        console.log(((xPos/boardWidth)*100).toFixed(1) + '%', ((yPos/boardHeight)*100).toFixed(1) + '%');
+    } */
 
     return (
         <div className='container'>
@@ -66,9 +52,11 @@ const FunctionTestPage = () => {
             <div className='page-wrapper'>
                 <div className='page-top'>
                     <div className='play-field-wrapper card'>
-                        <BlueTooltip disableFocusListener disableTouchListener followCursor title='Sample Tooltip Text'>
-                            <img src='/Craps_table_layout.png' alt='' onMouseMove={(e) => relCoords(e)}/>
-                        </BlueTooltip>
+                            <TableLayout 
+                                bet={bet}
+                                setBet={setBet}
+                            />
+                        <img src='/Craps_table_layout.png' alt='' />
                     </div>
                     <div className='game-controls-wrapper'>
                         <WagerInput

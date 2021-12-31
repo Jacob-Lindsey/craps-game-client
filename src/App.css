@@ -17,7 +17,7 @@ body {
 }
 
 .page-wrapper {
-/*   background-color: rgb(36, 36, 41);
+  /*   background-color: rgb(36, 36, 41);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.425); */
   display: flex;
   flex-direction: column;
@@ -49,6 +49,7 @@ body {
 }
 
 .play-field-wrapper img {
+  height: 100%;
   max-width: 100%;
 }
 
@@ -120,7 +121,6 @@ body {
   border-radius: 12px;
 }
 
-
 .data-display {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -175,7 +175,7 @@ body {
   font-size: 2.3rem;
   font-weight: 900;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  grid-template-areas: 
+  grid-template-areas:
     "a . c"
     "e g f"
     "d . b";
@@ -238,21 +238,21 @@ body {
   padding: 0.5rem 0.75rem;
 }
 
-.history-wrapper::-webkit-scrollbar-track {	
-	background-color: rgb(23, 23, 26);
+.history-wrapper::-webkit-scrollbar-track {
+  background-color: rgb(23, 23, 26);
   border-radius: 12px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .history-wrapper::-webkit-scrollbar {
-	background-color: rgb(48, 48, 54);
+  background-color: rgb(48, 48, 54);
   width: 10px;
 }
 
 .history-wrapper::-webkit-scrollbar-thumb {
-	background-color: rgb(36, 36, 49);
+  background-color: rgb(36, 36, 49);
   border-radius: 12px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 1023px) {
@@ -292,4 +292,230 @@ body {
   .history-wrapper > .card-header {
     position: sticky;
   }
+}
+
+/* GRID OVERLAY */
+
+.board-grid {
+  background-color: #222;
+  display: grid;
+  grid-template-columns: 3.2% 4.8% 4.8% 7.8% 7.8% 7.8% 7.8% 7.8% 7.8% 7.8% 1.4% 14% 14% 1fr;
+  grid-template-rows: 6.6% 5.4% 2.4% 15.1% 2% 15.5% 15.5% 9.6% 9.6% 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  height: 100%;
+  opacity: 0.2;
+  position: absolute;
+  width: 100%;
+}
+
+.dont-come {
+  grid-area: 2 / 4 / 6 / 5;
+}
+
+.four {
+  grid-area: 4 / 5 / 5 / 6;
+}
+
+.five {
+  grid-area: 4 / 6 / 5 / 7;
+}
+
+.six {
+  grid-area: 4 / 7 / 5 / 8;
+}
+
+.eight {
+  grid-area: 4 / 8 / 5 / 9;
+}
+
+.nine {
+  grid-area: 4 / 9 / 5 / 10;
+}
+
+.ten {
+  grid-area: 4 / 10 / 5 / 11;
+}
+
+.place-four {
+  grid-area: 4 / 5 / 5 / 6;
+}
+
+.place-five {
+  grid-area: 4 / 6 / 5 / 7;
+}
+
+.place-six {
+  grid-area: 4 / 7 / 5 / 8;
+}
+
+.place-eight {
+  grid-area: 4 / 8 / 5 / 9;
+}
+
+.place-nine {
+  grid-area: 4 / 9 / 5 / 10;
+}
+
+.place-ten {
+  grid-area: 4 / 10 / 5 / 11;
+}
+
+.come {
+  grid-area: 6 / 4 / 7 / 10;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 0.2fr 0.6fr 1.8fr 0.6fr 0.4fr;
+  grid-template-rows: 0.5fr 2fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . . ."
+    ". field-2 field-middle field-12 ."
+    ". . . . .";
+  grid-area: 7 / 5 / 8 / 10;
+}
+
+.field-2 {
+  grid-area: field-2;
+}
+
+.field-12 {
+  grid-area: field-12;
+}
+
+.field-middle {
+  grid-area: field-middle;
+}
+
+.dont-pass {
+  grid-area: 2 / 3 / 7 / 4;
+}
+
+.passline {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.passline-left {
+  grid-area: 4 / 2 / 8 / 3;
+}
+
+.buy-nine {
+  grid-area: 3 / 9 / 4 / 10;
+}
+
+.buy-eight {
+  grid-area: 3 / 8 / 4 / 9;
+}
+
+.buy-six {
+  grid-area: 3 / 7 / 4 / 8;
+}
+
+.buy-five {
+  grid-area: 3 / 6 / 4 / 7;
+}
+
+.buy-four {
+  grid-area: 3 / 5 / 4 / 6;
+}
+
+.buy-ten {
+  grid-area: 3 / 10 / 4 / 11;
+}
+
+.lay-four {
+  grid-area: 2 / 5 / 3 / 6;
+}
+
+.lay-five {
+  grid-area: 2 / 6 / 3 / 7;
+}
+
+.lay-six {
+  grid-area: 2 / 7 / 3 / 8;
+}
+
+.lay-eight {
+  grid-area: 2 / 8 / 3 / 9;
+}
+
+.lay-nine {
+  grid-area: 2 / 9 / 3 / 10;
+}
+
+.lay-ten {
+  grid-area: 2 / 10 / 3 / 11;
+}
+
+.buy-four-bottom {
+  grid-area: 5 / 5 / 6 / 6;
+}
+
+.buy-five-bottom {
+  grid-area: 5 / 6 / 6 / 7;
+}
+
+.buy-six-bottom {
+  grid-area: 5 / 7 / 6 / 8;
+}
+
+.buy-eight-bottom {
+  grid-area: 5 / 8 / 6 / 9;
+}
+
+.buy-nine-bottom {
+  grid-area: 5 / 9 / 6 / 10;
+}
+
+.buy-ten-bottom {
+  grid-area: 5 / 10 / 6 / 11;
+}
+
+.dont-pass-bottom {
+  grid-area: 8 / 5 / 9 / 10;
+}
+
+.big-six {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "big-six-bet .";
+  grid-area: 7 / 3 / 8 / 5;
+}
+
+.big-six-bet {
+  grid-area: big-six-bet;
+}
+
+.big-eight {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.9fr 1.1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "."
+    "big-eight-bet";
+  grid-area: 7 / 4 / 9 / 5;
+}
+
+.big-eight-bet {
+  grid-area: big-eight-bet;
+}
+
+.passline-bottom {
+  grid-area: 9 / 4 / 10 / 10;
+}
+
+.tooltip-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
 }
