@@ -36,7 +36,7 @@ const FunctionTestPage = () => {
 
     return (
         <div className='container'>
-            <div className='bet-btn-wrapper'>
+            {/* <div className='bet-btn-wrapper'>
                 <button className='bet-btn' onClick={() => setBet(passLine('Jake', wagerAmount))}>Pass Line</button>
                 <button className='bet-btn' onClick={() => setBet(field('Jake', wagerAmount, 2))}>Field</button>
                 <button className='bet-btn' onClick={() => setBet(place('Jake', wagerAmount, 10))}>Place</button>
@@ -48,7 +48,7 @@ const FunctionTestPage = () => {
                 <button className='bet-btn' onClick={() => setBet(horn3or11('Jake', wagerAmount))}>Horn 3 or 11</button>
                 <button className='bet-btn' onClick={() => setBet(horn2or12('Jake', wagerAmount))}>Horn 2 or 12</button>
                 <button className='bet-btn' onClick={() => setBet(big6or8('Jake', wagerAmount))}>Big 6 or 8</button>
-            </div>
+            </div> */}
             <div className='page-wrapper'>
                 <div className='page-top'>
                     <div className='play-field-wrapper card'>

@@ -1,3 +1,5 @@
+import WagerInfo from "./WagerInfo";
+
 const WagerInput = (props) => {
 
     const bet = props.bet;
@@ -24,15 +26,21 @@ const WagerInput = (props) => {
 
     return (
         <div className='wager-wrapper'>
-            <div className='card-header'>Wager</div>
-            <input
-                placeholder='Wager'
-                type='tel'
-                pattern='^-?[0-9]\d*\.?\d*$'
-                onChange={updateWager}
-                value={wagerAmount}
-            />
-            <button className='bet-btn green-btn' onClick={handleAddBet}>Add Bet</button>
+            <div className='card-header header-fixed'>Wager</div>
+            <div className='card-body'>
+                <WagerInfo bet={bet} />
+                <span>
+                    <input
+                        placeholder='Wager'
+                        type='tel'
+                        pattern='^-?[0-9]\d*\.?\d*$'
+                        onChange={updateWager}
+                        value={wagerAmount}
+                    />
+                    <button className='bet-btn green-btn' onClick={handleAddBet}>Add Bet</button>
+                </span>
+            </div>
+            
         </div>
     )
 

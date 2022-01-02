@@ -10,16 +10,21 @@ const TableLayout = (props) => {
     const setBet = props.setBet;
     
     const tooltipContent = bet ? <div className="tooltip-card">
-                                    <span>{bet.betName}</span>
-                                    <span>{bet.odds}</span>
-                                    <span>{bet.payout}</span>
-                                 </div> : 'No bet selected';
+                                    <span className="tooltip-header">{bet.betName}&nbsp;{bet.number}</span>
+                                    <span className="tooltip-body">
+                                        <span>Odds: {bet.odds.toFixed(2)}:1</span>
+                                        <span>Payout: {bet.payout.toFixed(2)}</span>  
+                                    </span>
+                                    
+                                 </div> : '';
 
     const CustomTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
     ))({
         [`& .${tooltipClasses.tooltip}`]: {
+            backgroundColor: 'rgb(38, 38, 46)',
             maxWidth: 500,
+            padding: '0 1rem 1.5rem 1rem'
         },
     });
 
@@ -27,32 +32,96 @@ const TableLayout = (props) => {
         <CustomTooltip title={tooltipContent} followCursor>            
             <div className="board-grid">
                 <div className="dont-come"></div>
-                <div onMouseOver={() => setBet(place('Jake', 10, 4))} className="place-four"></div>
-                <div onMouseOver={() => setBet(place('Jake', 10, 5))} className="place-five"></div>
-                <div onMouseOver={() => setBet(place('Jake', 10, 6))} className="place-six"></div>
-                <div onMouseOver={() => setBet(place('Jake', 10, 8))} className="place-eight"></div>
-                <div onMouseOver={() => setBet(place('Jake', 10, 9))} className="place-nine"></div>
-                <div onMouseOver={() => setBet(place('Jake', 10, 10))} className="place-ten"></div>
+                <div
+                    className="place-four"
+                    onMouseEnter={() => setBet(place('Jake', 10, 4))}
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="place-five" 
+                    onMouseEnter={() => setBet(place('Jake', 10, 5))} 
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="place-six" 
+                    onMouseEnter={() => setBet(place('Jake', 10, 6))}
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="place-eight" 
+                    onMouseEnter={() => setBet(place('Jake', 10, 8))}
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="place-nine" 
+                    onMouseEnter={() => setBet(place('Jake', 10, 9))}
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="place-ten" 
+                    onMouseEnter={() => setBet(place('Jake', 10, 10))}
+                    onMouseLeave={() => setBet(null)}
+                />
                 <div className="come"></div>
                 <div className="field">
-                    <div onMouseOver={() => setBet(field('Jake', 10, 2))} className="field-2"></div>
-                    <div onMouseOver={() => setBet(field('Jake', 10, 12))} className="field-12"></div>
-                    <div onMouseOver={() => setBet(field('Jake', 10, 10))} className="field-middle"></div>
+                    <div
+                        className="field-2" 
+                        onMouseEnter={() => setBet(field('Jake', 10, 2))} 
+                        onMouseLeave={() => setBet(null)}
+                    />
+                    <div
+                        className="field-12" 
+                        onMouseEnter={() => setBet(field('Jake', 10, 12))} 
+                        onMouseLeave={() => setBet(null)}
+                    />
+                    <div
+                        className="field-middle" 
+                        onMouseEnter={() => setBet(field('Jake', 10, 10))} 
+                        onMouseLeave={() => setBet(null)}
+                    />
                 </div>
                 <div className="dont-pass"></div>
-                <div onMouseOver={() => setBet(passLine('Jake', 10))} className="passline-left"></div>
+                <div
+                    className="passline-left" 
+                    onMouseEnter={() => setBet(passLine('Jake', 10))} 
+                    onMouseLeave={() => setBet(null)}
+                />
                 <div className="buy-nine"></div>
                 <div className="buy-eight"></div>
                 <div className="buy-six"></div>
                 <div className="buy-five"></div>
                 <div className="buy-four"></div>
                 <div className="buy-ten"></div>
-                <div onMouseOver={() => setBet(lay('Jake', 10, 4))} className="lay-four"></div>
-                <div onMouseOver={() => setBet(lay('Jake', 10, 5))} className="lay-five"></div>
-                <div onMouseOver={() => setBet(lay('Jake', 10, 6))} className="lay-six"></div>
-                <div onMouseOver={() => setBet(lay('Jake', 10, 8))} className="lay-eight"></div>
-                <div onMouseOver={() => setBet(lay('Jake', 10, 9))} className="lay-nine"></div>
-                <div onMouseOver={() => setBet(lay('Jake', 10, 10))} className="lay-ten"></div>
+                <div
+                    className="lay-four" 
+                    onMouseEnter={() => setBet(lay('Jake', 10, 4))}
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="lay-five" 
+                    onMouseEnter={() => setBet(lay('Jake', 10, 5))} 
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="lay-six" 
+                    onMouseEnter={() => setBet(lay('Jake', 10, 6))} 
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="lay-eight" 
+                    onMouseEnter={() => setBet(lay('Jake', 10, 8))} 
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="lay-nine" 
+                    onMouseEnter={() => setBet(lay('Jake', 10, 9))} 
+                    onMouseLeave={() => setBet(null)}
+                />
+                <div
+                    className="lay-ten" 
+                    onMouseEnter={() => setBet(lay('Jake', 10, 10))} 
+                    onMouseLeave={() => setBet(null)}
+                />
                 <div className="buy-four-bottom"></div>
                 <div className="buy-five-bottom"></div>
                 <div className="buy-six-bottom"></div>
@@ -61,12 +130,24 @@ const TableLayout = (props) => {
                 <div className="buy-ten-bottom"></div>
                 <div className="dont-pass-bottom"></div>
                 <div className="big-six">
-                    <div onMouseOver={() => setBet(big6or8('Jake', 10, 6))} className="big-six-bet"></div>
+                    <div
+                        className="big-six-bet" 
+                        onMouseEnter={() => setBet(big6or8('Jake', 10, 6))} 
+                        onMouseLeave={() => setBet(null)}
+                    />
                 </div>
                 <div className="big-eight">
-                    <div onMouseOver={() => setBet(big6or8('Jake', 10, 8))} className="big-eight-bet"></div>
+                    <div
+                        className="big-eight-bet" 
+                        onMouseEnter={() => setBet(big6or8('Jake', 10, 8))} 
+                        onMouseLeave={() => setBet(null)}
+                    />
                 </div>
-                <div onMouseOver={() => setBet(passLine('Jake', 10))} className="passline-bottom"></div>
+                <div
+                    className="passline-bottom" 
+                    onMouseEnter={() => setBet(passLine('Jake', 10))} 
+                    onMouseLeave={() => setBet(null)}
+                />
             </div>
         </CustomTooltip>
     )
