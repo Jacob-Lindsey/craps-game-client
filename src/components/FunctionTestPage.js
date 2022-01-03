@@ -3,7 +3,6 @@ import TableLayout from './TableLayout';
 import DieFace from './DieFace';
 import BetHistory from './BetHistory';
 import RollHistory from './RollHistory';
-import WagerInfo from './WagerInfo';
 import WagerInput from './WagerInput';
 import { passLine, field, place, lay, any7, anyCraps, craps2or12, craps3or11, horn3or11, horn2or12, big6or8 } from '../utils/bets';
 
@@ -13,6 +12,7 @@ const FunctionTestPage = () => {
 
     const [balance, setBalance] = useState(0);
     const [bet, setBet] = useState();
+    const [selectBet, setSelectBet] = useState();
     const [currentBets, setCurrentBets] = useState([]);
     const [wagerAmount, setWagerAmount] = useState(0);
     const [rollHistory, setRollHistory] = useState([]);
@@ -55,12 +55,15 @@ const FunctionTestPage = () => {
                             <TableLayout 
                                 bet={bet}
                                 setBet={setBet}
+                                setSelectBet={setSelectBet}
+                                wagerAmount={wagerAmount}
                             />
                         <img src='/Craps_table_layout.png' alt='' />
                     </div>
                     <div className='game-controls-wrapper'>
                         <WagerInput
-                            bet={bet}
+                            selectBet={selectBet}
+                            setSelectBet={setSelectBet}
                             wagerAmount={wagerAmount}
                             setWagerAmount={setWagerAmount}
                             setCurrentBets={setCurrentBets}

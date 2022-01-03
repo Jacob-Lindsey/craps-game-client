@@ -2,13 +2,13 @@ import WagerInfo from "./WagerInfo";
 
 const WagerInput = (props) => {
 
-    const bet = props.bet;
+    const selectBet = props.selectBet;
     const setCurrentBets = props.setCurrentBets;
     const wagerAmount = props.wagerAmount;
     const setWagerAmount = props.setWagerAmount;
 
     const handleAddBet = () => {
-        const newBet = bet ? bet : null;
+        const newBet = selectBet ? selectBet : null;
         if (!newBet) {
             return;
         }
@@ -28,7 +28,7 @@ const WagerInput = (props) => {
         <div className='wager-wrapper'>
             <div className='card-header header-fixed'>Wager</div>
             <div className='card-body'>
-                <WagerInfo bet={bet} />
+                <WagerInfo selectBet={selectBet} />
                 <span>
                     <input
                         placeholder='Wager'

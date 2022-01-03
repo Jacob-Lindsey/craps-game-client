@@ -1,17 +1,17 @@
 const WagerInfo = (props) => {
 
-    const bet = props.bet;
+    const selectBet = props.selectBet;
 
     return (
         <div className='data-wrapper'>
-            {bet ?
+            {selectBet ?
                 <div className='data-display'>
                     {
                         <>
-                            <span className='display-title'>{bet.betName}</span>
-                            <span className='display-details'>Odds: &nbsp;{bet.odds.toFixed(1)}:1</span>
-                            <span className='display-details'>Payout: &nbsp;{bet.payout.toFixed(1)}</span>
-                            <span className='display-details'>Wager Amount: &nbsp;{bet.wager}</span>
+                            <span className='display-title'>{selectBet.betName}</span>
+                            <span className='display-details'>Odds: &nbsp;{selectBet.odds.toFixed(1)}:1</span>
+                            <span className='display-details'>Payout: &nbsp;{selectBet.payout.toFixed(1)}</span>
+                            <span className='display-details'>Wager Amount: &nbsp;{selectBet.wager}</span>
                         </>
                     }
                 </div> :

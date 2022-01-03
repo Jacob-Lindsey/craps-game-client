@@ -8,12 +8,15 @@ const TableLayout = (props) => {
 
     const bet = props.bet;
     const setBet = props.setBet;
+    const setSelectBet = props.setSelectBet;
+    const wagerAmount = props.wagerAmount;
+
+    const wager = wagerAmount ? wagerAmount : 0;
     
     const tooltipContent = bet ? <div className="tooltip-card">
                                     <span className="tooltip-header">{bet.betName}&nbsp;{bet.number}</span>
                                     <span className="tooltip-body">
-                                        <span>Odds: {bet.odds.toFixed(2)}:1</span>
-                                        <span>Payout: {bet.payout.toFixed(2)}</span>  
+                                        <span>Odds: {bet.odds.toFixed(2)}:1</span>  
                                     </span>
                                     
                                  </div> : '';
@@ -34,50 +37,59 @@ const TableLayout = (props) => {
                 <div className="dont-come"></div>
                 <div
                     className="place-four"
-                    onMouseEnter={() => setBet(place('Jake', 10, 4))}
+                    onMouseEnter={() => setBet(place('Jake', wager, 4))}
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="place-five" 
-                    onMouseEnter={() => setBet(place('Jake', 10, 5))} 
+                    onMouseEnter={() => setBet(place('Jake', wager, 5))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="place-six" 
-                    onMouseEnter={() => setBet(place('Jake', 10, 6))}
+                    onMouseEnter={() => setBet(place('Jake', wager, 6))}
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="place-eight" 
-                    onMouseEnter={() => setBet(place('Jake', 10, 8))}
+                    onMouseEnter={() => setBet(place('Jake', wager, 8))}
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="place-nine" 
-                    onMouseEnter={() => setBet(place('Jake', 10, 9))}
+                    onMouseEnter={() => setBet(place('Jake', wager, 9))}
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="place-ten" 
-                    onMouseEnter={() => setBet(place('Jake', 10, 10))}
+                    onMouseEnter={() => setBet(place('Jake', wager, 10))}
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div className="come"></div>
                 <div className="field">
                     <div
                         className="field-2" 
-                        onMouseEnter={() => setBet(field('Jake', 10, 2))} 
+                        onMouseEnter={() => setBet(field('Jake', wager, 2))} 
                         onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
                     />
                     <div
                         className="field-12" 
-                        onMouseEnter={() => setBet(field('Jake', 10, 12))} 
+                        onMouseEnter={() => setBet(field('Jake', wager, 12))} 
                         onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
                     />
                     <div
                         className="field-middle" 
-                        onMouseEnter={() => setBet(field('Jake', 10, 10))} 
+                        onMouseEnter={() => setBet(field('Jake', wager, 10))} 
                         onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
                     />
                 </div>
                 <div className="dont-pass"></div>
@@ -85,6 +97,7 @@ const TableLayout = (props) => {
                     className="passline-left" 
                     onMouseEnter={() => setBet(passLine('Jake', 10))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div className="buy-nine"></div>
                 <div className="buy-eight"></div>
@@ -94,33 +107,39 @@ const TableLayout = (props) => {
                 <div className="buy-ten"></div>
                 <div
                     className="lay-four" 
-                    onMouseEnter={() => setBet(lay('Jake', 10, 4))}
+                    onMouseEnter={() => setBet(lay('Jake', wager, 4))}
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="lay-five" 
-                    onMouseEnter={() => setBet(lay('Jake', 10, 5))} 
+                    onMouseEnter={() => setBet(lay('Jake', wager, 5))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="lay-six" 
-                    onMouseEnter={() => setBet(lay('Jake', 10, 6))} 
+                    onMouseEnter={() => setBet(lay('Jake', wager, 6))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="lay-eight" 
-                    onMouseEnter={() => setBet(lay('Jake', 10, 8))} 
+                    onMouseEnter={() => setBet(lay('Jake', wager, 8))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="lay-nine" 
-                    onMouseEnter={() => setBet(lay('Jake', 10, 9))} 
+                    onMouseEnter={() => setBet(lay('Jake', wager, 9))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div
                     className="lay-ten" 
-                    onMouseEnter={() => setBet(lay('Jake', 10, 10))} 
+                    onMouseEnter={() => setBet(lay('Jake', wager, 10))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
                 <div className="buy-four-bottom"></div>
                 <div className="buy-five-bottom"></div>
@@ -132,21 +151,24 @@ const TableLayout = (props) => {
                 <div className="big-six">
                     <div
                         className="big-six-bet" 
-                        onMouseEnter={() => setBet(big6or8('Jake', 10, 6))} 
+                        onMouseEnter={() => setBet(big6or8('Jake', wager, 6))} 
                         onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
                     />
                 </div>
                 <div className="big-eight">
                     <div
                         className="big-eight-bet" 
-                        onMouseEnter={() => setBet(big6or8('Jake', 10, 8))} 
+                        onMouseEnter={() => setBet(big6or8('Jake', wager, 8))} 
                         onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
                     />
                 </div>
                 <div
                     className="passline-bottom" 
                     onMouseEnter={() => setBet(passLine('Jake', 10))} 
                     onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
                 />
             </div>
         </CustomTooltip>
