@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { Tooltip, tooltipClasses } from '@mui/material';
-import { passLine, field, place, lay, any7, anyCraps, craps2or12, craps3or11, horn3or11, horn2or12, big6or8 } from '../utils/bets';
+import { passLine, dontPassLine, come, dontCome, field, place, lay, any7, anyCraps, craps2or12, craps3or11, horn3or11, horn2or12, propTwo, propThree, propEleven, propTwelve, big6or8 } from '../utils/bets';
 
 const TableLayout = (props) => {
 
@@ -34,7 +34,11 @@ const TableLayout = (props) => {
     return (
         <CustomTooltip title={tooltipContent} followCursor>            
             <div className="board-grid">
-                <div className="dont-come"></div>
+                <div className="dont-come" 
+                    onMouseEnter={() => setBet(dontCome('Jake', wager, 4))}
+                    onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
+                />
                 <div
                     className="place-four"
                     onMouseEnter={() => setBet(place('Jake', wager, 4))}
@@ -71,7 +75,11 @@ const TableLayout = (props) => {
                     onMouseLeave={() => setBet(null)}
                     onClick={() => setSelectBet(bet)}
                 />
-                <div className="come"></div>
+                <div className="come" 
+                    onMouseEnter={() => setBet(come('Jake', wager, 4))}
+                    onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
+                />
                 <div className="field">
                     <div
                         className="field-2" 
@@ -92,7 +100,11 @@ const TableLayout = (props) => {
                         onClick={() => setSelectBet(bet)}
                     />
                 </div>
-                <div className="dont-pass"></div>
+                <div className="dont-pass" 
+                    onMouseEnter={() => setBet(dontPassLine('Jake', wager))}
+                    onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
+                />
                 <div
                     className="passline-left" 
                     onMouseEnter={() => setBet(passLine('Jake', 10))} 
@@ -147,7 +159,11 @@ const TableLayout = (props) => {
                 <div className="buy-eight-bottom"></div>
                 <div className="buy-nine-bottom"></div>
                 <div className="buy-ten-bottom"></div>
-                <div className="dont-pass-bottom"></div>
+                <div className="dont-pass-bottom" 
+                    onMouseEnter={() => setBet(dontPassLine('Jake', wager))}
+                    onMouseLeave={() => setBet(null)}
+                    onClick={() => setSelectBet(bet)}
+                />
                 <div className="big-six">
                     <div
                         className="big-six-bet" 

@@ -19,6 +19,69 @@ const passLine = (player, wager) => {
     return bet;
 };
 
+const dontPassLine = (player, wager) => {
+
+    let odds = 1;
+    let payout = +wager + (wager*odds);
+
+    let bet = {
+        betName: "Don't Pass Line",
+        contract: true,
+        loseConditions: [],
+        odds: odds,
+        payout: payout,
+        persistent: true,
+        player: player,
+        point: null,
+        wager: +wager,
+        winConditions: [],
+    }
+
+    return bet;
+};
+
+const come = (player, wager, number) => {
+
+    let odds = 1;
+    let payout = +wager + (wager*odds);
+
+    let bet = {
+        betName: `Come ${number}`,
+        contract: true,
+        loseConditions: [7],
+        odds: odds,
+        payout: payout,
+        persistent: true,
+        player: player,
+        point: number,
+        wager: +wager,
+        winConditions: [number],
+    }
+
+    return bet;
+};
+
+const dontCome = (player, wager, number) => {
+
+    let odds = 1;
+    let payout = +wager + (wager*odds);
+
+    let bet = {
+        betName: `Don't Come ${number}`,
+        contract: true,
+        loseConditions: [number],
+        odds: odds,
+        payout: payout,
+        persistent: true,
+        player: player,
+        point: number,
+        wager: +wager,
+        winConditions: [7],
+    }
+
+    return bet;
+};
+
 // FIELD BET
 
 const field = (player, wager, number) => {
@@ -120,6 +183,33 @@ const lay = (player, wager, number) => {
 
 // HARDWAY BETS
 
+const hardway = (player, wager, number) => {
+
+    let odds;
+    if (number === 4 || number === 10) {
+        odds = 7;
+    } else if (number === 6 || number === 8) {
+        odds = 9;
+    }
+    let payout = +wager + (wager*odds);
+    let hardwayValue = number/2;
+
+    let bet = {
+        betName: `Hardway ${number}`,
+        contract: false,
+        hardway: hardwayValue,
+        loseConditions: [7],
+        number: number,
+        odds: odds,
+        payout: payout,
+        persistent: true,
+        player: player,
+        wager: +wager,
+        winConditions: [number],
+    }
+
+    return bet;
+};
 
 // ONE TIME BETS
 
@@ -143,6 +233,87 @@ const any7 = (player, wager) => {
 
     return bet;
 };
+
+const propEleven = (player, wager) => {
+    
+    let odds = 15;
+    let payout = +wager + (wager*odds);
+
+    let bet = {
+        betName: 'Prop Bet - 11',
+        contract: false,
+        loseConditions: [2,3,4,5,6,7,8,9,10.12],
+        odds: odds,
+        payout: payout,
+        persistent: false,
+        player: player,
+        wager: +wager,
+        winConditions: [11],
+    }
+
+    return bet;
+};
+
+const propThree = (player, wager) => {
+    
+    let odds = 15;
+    let payout = +wager + (wager*odds);
+
+    let bet = {
+        betName: 'Prop Bet - Ace-Deuce',
+        contract: false,
+        loseConditions: [2,4,5,6,7,8,9,10.11,12],
+        odds: odds,
+        payout: payout,
+        persistent: false,
+        player: player,
+        wager: +wager,
+        winConditions: [3],
+    }
+
+    return bet;
+};
+
+const propTwo = (player, wager) => {
+    
+    let odds = 30;
+    let payout = +wager + (wager*odds);
+
+    let bet = {
+        betName: 'Prop Bet - Aces',
+        contract: false,
+        loseConditions: [3,4,5,6,7,8,9,10.11,12],
+        odds: odds,
+        payout: payout,
+        persistent: false,
+        player: player,
+        wager: +wager,
+        winConditions: [2],
+    }
+
+    return bet;
+};
+
+const propTwelve = (player, wager) => {
+    
+    let odds = 30;
+    let payout = +wager + (wager*odds);
+
+    let bet = {
+        betName: 'Prop Bet - 12',
+        contract: false,
+        loseConditions: [2,3,4,5,6,7,8,9,10.11],
+        odds: odds,
+        payout: payout,
+        persistent: false,
+        player: player,
+        wager: +wager,
+        winConditions: [12],
+    }
+
+    return bet;
+};
+
 
 const anyCraps = (player, wager) => {
 
@@ -266,6 +437,9 @@ const big6or8 = (player, wager) => {
 
 module.exports = {
     passLine,
+    dontPassLine,
+    come,
+    dontCome,
     field,
     place,
     lay,
@@ -273,6 +447,10 @@ module.exports = {
     anyCraps,
     craps2or12,
     craps3or11,
+    propEleven,
+    propTwelve,
+    propTwo,
+    propThree,
     horn3or11,
     horn2or12,
     big6or8
