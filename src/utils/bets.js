@@ -195,7 +195,7 @@ const hardway = (player, wager, number) => {
     let hardwayValue = number/2;
 
     let bet = {
-        betName: `Hardway ${number}`,
+        betName: 'Hardway',
         contract: false,
         hardway: hardwayValue,
         loseConditions: [7],
@@ -445,6 +445,7 @@ module.exports = {
     lay,
     any7,
     anyCraps,
+    hardway,
     craps2or12,
     craps3or11,
     propEleven,

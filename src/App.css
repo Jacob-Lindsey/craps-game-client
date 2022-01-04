@@ -542,6 +542,73 @@ body {
   grid-area: 9 / 4 / 10 / 10;
 }
 
+.prop-bets {
+  display: grid;
+  grid-template-columns: 50% 50% 50%;
+  grid-template-rows: 8.5% 9% 16% 16% 16% 16% 9%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    "any-7 any-7 ."
+    "hard-6 hard-10 ."
+    "hard-8 hard-4 ."
+    "prop-2-3-12 prop-2-3-12 ."
+    "six-five six-five ."
+    "any-craps any-craps .";
+  grid-area: 6 / 12 / 11 / 14;
+}
+
+.any-7 {
+  grid-area: any-7;
+}
+
+.hard-6 {
+  grid-area: hard-6;
+}
+
+.hard-10 {
+  grid-area: hard-10;
+}
+
+.hard-8 {
+  grid-area: hard-8;
+}
+
+.hard-4 {
+  grid-area: hard-4;
+}
+
+.prop-2-3-12 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "ace-deuce ace-ace six-six";
+  grid-area: prop-2-3-12;
+}
+
+.ace-deuce {
+  grid-area: ace-deuce;
+}
+
+.ace-ace {
+  grid-area: ace-ace;
+}
+
+.six-six {
+  grid-area: six-six;
+}
+
+.six-five {
+  grid-area: six-five;
+}
+
+.any-craps {
+  grid-area: any-craps;
+}
+
 .tooltip-card {
   display: flex;
   flex-direction: column;

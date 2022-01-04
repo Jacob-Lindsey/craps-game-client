@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { Tooltip, tooltipClasses } from '@mui/material';
-import { passLine, dontPassLine, come, dontCome, field, place, lay, any7, anyCraps, craps2or12, craps3or11, horn3or11, horn2or12, propTwo, propThree, propEleven, propTwelve, big6or8 } from '../utils/bets';
+import { passLine, dontPassLine, come, dontCome, field, place, lay, any7, anyCraps, craps2or12, craps3or11, horn3or11, horn2or12, propTwo, propThree, propEleven, propTwelve, big6or8, hardway } from '../utils/bets';
 
 const TableLayout = (props) => {
 
@@ -186,6 +186,70 @@ const TableLayout = (props) => {
                     onMouseLeave={() => setBet(null)}
                     onClick={() => setSelectBet(bet)}
                 />
+                <div className="prop-bets">
+                    <div
+                        className="any-7" 
+                        onMouseEnter={() => setBet(any7('Jake', wager))} 
+                        onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
+                    />
+                    <div 
+                        className="hard-6" 
+                        onMouseEnter={() => setBet(hardway('Jake', wager, 6))} 
+                        onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
+                    />
+                    <div 
+                        className="hard-10" 
+                        onMouseEnter={() => setBet(hardway('Jake', wager, 10))} 
+                        onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
+                    />
+                    <div 
+                        className="hard-8" 
+                        onMouseEnter={() => setBet(hardway('Jake', wager, 8))} 
+                        onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
+                    />
+                    <div
+                        className="hard-4" 
+                        onMouseEnter={() => setBet(hardway('Jake', wager, 4))} 
+                        onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
+                    />
+                    <div className="prop-2-3-12">
+                        <div 
+                            className="ace-deuce"
+                            onMouseEnter={() => setBet(propThree('Jake', wager))} 
+                            onMouseLeave={() => setBet(null)}
+                            onClick={() => setSelectBet(bet)}
+                        />
+                        <div 
+                            className="ace-ace"
+                            onMouseEnter={() => setBet(propTwo('Jake', wager))} 
+                            onMouseLeave={() => setBet(null)}
+                            onClick={() => setSelectBet(bet)}
+                        />
+                        <div 
+                            className="six-six"
+                            onMouseEnter={() => setBet(propTwelve('Jake', wager))} 
+                            onMouseLeave={() => setBet(null)}
+                            onClick={() => setSelectBet(bet)}
+                        />
+                    </div>
+                    <div 
+                        className="six-five"
+                        onMouseEnter={() => setBet(propEleven('Jake', wager))} 
+                        onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
+                    />
+                    <div
+                        className="any-craps"
+                        onMouseEnter={() => setBet(anyCraps('Jake', wager))} 
+                        onMouseLeave={() => setBet(null)}
+                        onClick={() => setSelectBet(bet)}
+                    />
+                </div>
             </div>
         </CustomTooltip>
     )
