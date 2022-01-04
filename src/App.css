@@ -7,6 +7,43 @@ body {
   overflow: auto;
 }
 
+.marker-button {
+  background-color: rgb(241, 241, 241);
+  border-radius: 50%;
+  margin-left: 0.25rem;
+  padding: 1.1rem;
+  position: absolute;
+}
+
+.point-hidden {
+  visibility: hidden;
+}
+
+.point-4 {
+  grid-area: 2 / 5 / 3 / 6;
+}
+
+.point-5 {
+  grid-area: 2 / 6 / 3 / 7;  
+}
+
+.point-6 {
+  grid-area: 2 / 7 / 3 / 8;  
+}
+
+.point-8 {
+  grid-area: 2 / 8 / 3 / 9;  
+}
+
+.point-9 {
+  grid-area: 2 / 9 / 3 / 10;  
+}
+
+.point-10 {
+  grid-area: 2 / 10 / 3 / 11;  
+}
+
+
 .dashed-border {
   border: 1px dashed #ddd !important;
   padding: 3rem 1rem;
@@ -45,6 +82,15 @@ body {
   margin: 0 auto;
   max-width: 2560px;
   position: relative;
+}
+
+.game-message {
+  background-color: rgb(36, 36, 41);
+  bottom: 0;
+  color: #ddd;
+  padding: 2rem 0 2rem 5rem;
+  position: absolute;
+  width: 100%;
 }
 
 .page-wrapper {
@@ -388,7 +434,6 @@ body {
 /* GRID OVERLAY */
 
 .board-grid {
-  background-color: #222;
   display: grid;
   grid-template-columns: 3.2% 4.8% 4.8% 7.8% 7.8% 7.8% 7.8% 7.8% 7.8% 7.8% 1.4% 14% 14% 1fr;
   grid-template-rows: 6.6% 5.4% 2.4% 15.1% 2% 15.5% 15.5% 9.6% 9.6% 1fr;
@@ -396,7 +441,6 @@ body {
   gap: 0px 0px;
   grid-auto-flow: row;
   height: 100%;
-  opacity: 0.2;
   position: absolute;
   width: 100%;
 }

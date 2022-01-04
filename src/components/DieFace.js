@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { roll } from '../utils/rollDice';
+import gameLoop from "../utils/gameLoop";
 
 const DieFace = (props) => {
 
@@ -12,11 +13,17 @@ const DieFace = (props) => {
     let pips2 = [];
 
     const setHistory = props.setRollHistory;
+    const balance = props.balance;
+    const setBalance = props.setBalance;
+    const point = props.point;
+    const setPoint = props.setPoint;
+    const setGameMessage = props.setGameMessage;
 
     const handleRoll = () => {
         const rollResult = roll();
         const d1 = rollResult[0];
         const d2 = rollResult[1];
+        const rollValue = d1 + d2;
         setDie1(d1);
         setDie2(d2);
         pips1 = [];
@@ -30,6 +37,7 @@ const DieFace = (props) => {
         setP1(pips1);
         setP2(pips2);
         setHistory(oldRollHistory => [...oldRollHistory, [pips1,pips2]]);
+        gameLoop(balance, setBalance, point, setPoint, rollValue, setGameMessage);
     };
 
     return (

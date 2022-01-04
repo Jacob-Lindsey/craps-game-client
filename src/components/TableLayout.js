@@ -1,12 +1,12 @@
-import { useRef, useEffect } from "react";
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 import { Tooltip, tooltipClasses } from '@mui/material';
 import { passLine, dontPassLine, come, dontCome, field, place, lay, any7, anyCraps, craps2or12, craps3or11, horn3or11, horn2or12, propTwo, propThree, propEleven, propTwelve, big6or8, hardway } from '../utils/bets';
+import OnOffButton from './OnOffButton';
 
 const TableLayout = (props) => {
 
     const bet = props.bet;
+    const point = props.point;
     const setBet = props.setBet;
     const setSelectBet = props.setSelectBet;
     const wagerAmount = props.wagerAmount;
@@ -34,6 +34,7 @@ const TableLayout = (props) => {
     return (
         <CustomTooltip title={tooltipContent} followCursor>            
             <div className="board-grid">
+                <OnOffButton point={point} />
                 <div className="dont-come" 
                     onMouseEnter={() => setBet(dontCome('Jake', wager, 4))}
                     onMouseLeave={() => setBet(null)}
