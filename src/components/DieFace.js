@@ -34,7 +34,7 @@ const DieFace = (props) => {
 
     return (
         <div className='roll-wrapper card'>
-            <div className='card-header header-fixed'>Roll Dice</div>
+            <div className='card-header-top header-fixed'>Roll Dice</div>
             <div className='roll-result'>
                 <div className='die-face'>
                     {die1 && <> {p1} </> }

@@ -16,6 +16,7 @@ const FunctionTestPage = () => {
     const [currentBets, setCurrentBets] = useState([]);
     const [wagerAmount, setWagerAmount] = useState(0);
     const [rollHistory, setRollHistory] = useState([]);
+    const [point, setPoint] = useState();
     /* const [boardWidth, setBoardWidth] = useState(0);
     const [boardHeight, setBoardHeight] = useState(0); */
 
@@ -67,7 +68,6 @@ const FunctionTestPage = () => {
                             wagerAmount={wagerAmount}
                             setWagerAmount={setWagerAmount}
                             setCurrentBets={setCurrentBets}
-                            setRollHistory={setRollHistory}
                         />
                         <DieFace  setRollHistory={setRollHistory} />
                     </div>

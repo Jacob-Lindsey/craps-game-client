@@ -3,6 +3,7 @@ import WagerInfo from "./WagerInfo";
 const WagerInput = (props) => {
 
     const selectBet = props.selectBet;
+    const setSelectBet = props.setSelectBet;
     const setCurrentBets = props.setCurrentBets;
     const wagerAmount = props.wagerAmount;
     const setWagerAmount = props.setWagerAmount;
@@ -19,14 +20,24 @@ const WagerInput = (props) => {
         const val = e.target.value;
         if (e.target.validity.valid) {
             setWagerAmount(e.target.value);
+            setSelectBet(selectBet => ({
+                ...selectBet,
+                payout: +calculateNewPayout(e.target.value),
+                wager: e.target.value,
+            }));
         } else if (val === '') {
             setWagerAmount(val);
         }
     };
 
+    const calculateNewPayout = (val) => {
+        const newPayout = val + (val * selectBet.odds);
+        return newPayout;
+    };
+
     return (
-        <div className='wager-wrapper'>
-            <div className='card-header header-fixed'>Wager</div>
+        <div className='wager-wrapper card'>
+            <div className='card-header-top header-fixed'>Wager</div>
             <div className='card-body'>
                 <WagerInfo selectBet={selectBet} />
                 <span>

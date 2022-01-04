@@ -3,11 +3,11 @@ const RollHistory = (props) => {
     const rollHistory = props.rollHistory;
 
     return (
-        <div className='history-wrapper card'>
-            <div className='card-header'>Roll History</div> 
+        <div className='roll-history card'>
+            <div className='card-header-bottom'>Roll History</div> 
             {rollHistory && rollHistory.slice(0).reverse().map((roll, index) => {
                 return (
-                    <div className='current-bet-details' key={index}>
+                    <div className='roll-history-details' key={index}>
                         <div className='die-face'>
                             {roll[0]}
                         </div>
