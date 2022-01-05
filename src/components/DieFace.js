@@ -14,10 +14,12 @@ const DieFace = (props) => {
 
     const setHistory = props.setRollHistory;
     const balance = props.balance;
+    const setStreak = props.setStreak;
     const setBalance = props.setBalance;
     const point = props.point;
     const setPoint = props.setPoint;
     const setGameMessage = props.setGameMessage;
+    const setOpen = props.setOpen;
 
     const handleRoll = () => {
         const rollResult = roll();
@@ -37,7 +39,7 @@ const DieFace = (props) => {
         setP1(pips1);
         setP2(pips2);
         setHistory(oldRollHistory => [...oldRollHistory, [pips1,pips2]]);
-        gameLoop(balance, setBalance, point, setPoint, rollValue, setGameMessage);
+        gameLoop(balance, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak);
     };
 
     return (

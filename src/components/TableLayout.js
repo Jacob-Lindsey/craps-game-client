@@ -6,6 +6,7 @@ import OnOffButton from './OnOffButton';
 const TableLayout = (props) => {
 
     const bet = props.bet;
+    const streak = props.streak;
     const point = props.point;
     const setBet = props.setBet;
     const setSelectBet = props.setSelectBet;
@@ -35,6 +36,7 @@ const TableLayout = (props) => {
         <CustomTooltip title={tooltipContent} followCursor>            
             <div className="board-grid">
                 <OnOffButton point={point} />
+                <div className="streak-counter">{streak > 4 ? 'HOT STREAK: ' + streak : ''}</div>
                 <div className="dont-come" 
                     onMouseEnter={() => setBet(dontCome('Jake', wager, 4))}
                     onMouseLeave={() => setBet(null)}
