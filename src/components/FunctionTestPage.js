@@ -67,6 +67,7 @@ const FunctionTestPage = () => {
                         <div className='game-controls-wrapper'>
                             <WagerInput
                                 balance={balance}
+                                setBalance={setBalance}
                                 selectBet={selectBet}
                                 setSelectBet={setSelectBet}
                                 wagerAmount={wagerAmount}
@@ -86,7 +87,11 @@ const FunctionTestPage = () => {
                     </div>
                     <div className='page-bottom'>
                         <RollHistory rollHistory={rollHistory} />
-                        <BetHistory currentBets={currentBets} />
+                        <BetHistory 
+                            currentBets={currentBets}
+                            setCurrentBets={setCurrentBets}
+                            setBalance={setBalance}
+                        />
                     </div>                
                 </div>
 
