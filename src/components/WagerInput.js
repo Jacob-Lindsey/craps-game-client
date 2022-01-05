@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import calculateNewPayout from "../utils/calculateNewPayout";
 import WagerInfo from "./WagerInfo";
 
 const WagerInput = (props) => {
@@ -29,10 +30,13 @@ const WagerInput = (props) => {
     const handleAddBet = () => {
         const newBet = selectBet ? selectBet : null;
         if (!newBet) {
-            setError(null);
+            setError('Select a Bet');
             return;
         } else if (newBet.wager > balance) {
             setError('Insufficient Balance');
+            return;
+        } else if (newBet.wager < 5) {
+            setError('Minimum Bet is 5');
             return;
         }
         setError(null);
@@ -46,17 +50,12 @@ const WagerInput = (props) => {
             setWagerAmount(e.target.value);
             setSelectBet(selectBet => ({
                 ...selectBet,
-                payout: +calculateNewPayout(e.target.value),
+                payout: +calculateNewPayout(e.target.value, selectBet),
                 wager: e.target.value,
             }));
         } else if (val === '') {
             setWagerAmount(val);
         }
-    };
-
-    const calculateNewPayout = (val) => {
-        const newPayout = val + (val * selectBet.odds);
-        return newPayout;
     };
 
     return (

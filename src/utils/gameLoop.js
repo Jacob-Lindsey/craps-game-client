@@ -1,5 +1,4 @@
 const gameLoop = (balance, setBalance, point, setPoint, rollValue, setGameMessage) => {
-    setBalance(10);
     if (rollValue === 2 || rollValue === 3 || rollValue === 12) {
         if (!point) {
             setGameMessage(`Craps ${rollValue}... Next shooter.`);

@@ -19,7 +19,7 @@ const TableLayout = (props) => {
                                         <span>Odds: {bet.odds.toFixed(2)}:1</span>  
                                     </span>
                                     
-                                 </div> : '';
+                                 </div> : <>''</>;
 
     const CustomTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />

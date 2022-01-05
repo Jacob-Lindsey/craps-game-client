@@ -1,3 +1,4 @@
+import removeBet from "../utils/removeBet";
 import { Delete } from "@material-ui/icons";
 
 const BetHistory = (props) => {
@@ -5,11 +6,6 @@ const BetHistory = (props) => {
     const currentBets = props.currentBets;
     const setCurrentBets = props.setCurrentBets;
     const setBalance = props.setBalance;
-
-    const removeBet = (bet) => {
-        setBalance(prevBalance => prevBalance + +bet.wager);
-        setCurrentBets(currentBets.filter(cBet => cBet !== bet));
-    };
 
     return (
         <div className='history-wrapper card'>
@@ -27,7 +23,7 @@ const BetHistory = (props) => {
                             <p>{bet.winConditions && bet.winConditions.join(", ")}</p>
                             <p>{bet.payout.toFixed(1)}</p>
                             <p>{bet.wager}</p>
-                            <Delete onClick={() => removeBet(bet)} />
+                            <Delete onClick={() => removeBet(bet, setBalance, currentBets, setCurrentBets)} />
                         </div>
                     )
                 })}
