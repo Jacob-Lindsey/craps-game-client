@@ -45,12 +45,14 @@ const DieFace = (props) => {
     return (
         <div className='roll-wrapper card'>
             <div className='card-header-top header-fixed'>Roll Dice</div>
-            <div className='roll-result'>
-                <div className='die-face'>
-                    {die1 && <> {p1} </> }
-                </div>
-                <div className='die-face'>
-                    {die2 && <> {p2} </> }
+            <div className="card-body">
+                <div className='roll-result'>
+                    <div className='die-face'>
+                        {die1 && <> {p1} </> }
+                    </div>
+                    <div className='die-face'>
+                        {die2 && <> {p2} </> }
+                    </div>
                 </div>
             </div>
             <button className='bet-btn green-btn' onClick={() => handleRoll()}>ROLL</button>

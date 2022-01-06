@@ -10,10 +10,17 @@ body {
 /* UTILITY CLASSES */
 
 .input-error-msg {
-  color: rgb(255, 65, 65);
+  background-color: rgb(23, 23, 26);
+  border-radius: 12px;
+  color: #ddd;
   font-size: 1.1rem;
   font-weight: 700;
+  outline: 2px solid rgba(230, 161, 11, 0.678);
+  outline-offset: -5px;
+  padding: 1.25rem 1rem;
   position: absolute;
+  right: 0.8rem;
+  top: 0.7rem;
 }
 
 .marker-button {
@@ -30,14 +37,19 @@ body {
 .chip-100 {
   align-items: center;
   border-radius: 50%;
+  cursor: pointer;
   display: flex;
   font-size: 0.87rem;
   font-weight: 600;
   height: 48px;
   justify-content: center;
   outline-offset: -3px;
-  position: absolute;
+  
   width: 48px;
+}
+
+.centered {
+  justify-self: center;
 }
 
 .chip-5 {
@@ -106,30 +118,38 @@ body {
 }
 
 .card-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   height: 100%;
-  padding-top: 5rem;
+  padding-top: 18%;
 }
 
 .input-wrapper {
   align-items: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
-  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  justify-items: center;
   position: relative;
 }
 
-.card-body span input {
-  padding: 0.5rem 0.25rem;
-  width: 90%;
+.selected {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.815), -1px -1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.chip-wrapper {
+  border-radius: 8px;
+  padding: 25% 16%;
+}
+
+.chip-label {
+  color: #ddd;
+  font-weight: 800;
 }
 
 .container {
   display: flex;
   margin: 0 auto;
-  max-width: 2560px;
+  max-width: 1920px;
   position: relative;
 }
 
@@ -282,9 +302,9 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
-  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .roll-result {

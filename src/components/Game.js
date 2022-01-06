@@ -33,12 +33,16 @@ const Game = () => {
                 <div className='page-wrapper'>
                     <div className='page-top'>
                         <div className='play-field-wrapper card'>
-                                <TableLayout 
+                                <TableLayout
+                                    balance={balance}
                                     bet={bet}
                                     chips={chips}
                                     streak={streak}
                                     point={point}
                                     setBet={setBet}
+                                    setBalance={setBalance}
+                                    setChips={setChips}
+                                    setCurrentBets={setCurrentBets}
                                     setSelectBet={setSelectBet}
                                     wagerAmount={wagerAmount}
                                 />
@@ -48,12 +52,8 @@ const Game = () => {
                             <WagerInput
                                 balance={balance}
                                 setBalance={setBalance}
-                                setChips={setChips}
-                                selectBet={selectBet}
-                                setSelectBet={setSelectBet}
                                 wagerAmount={wagerAmount}
                                 setWagerAmount={setWagerAmount}
-                                setCurrentBets={setCurrentBets}
                             />
                             <DieFace
                                 setRollHistory={setRollHistory}
