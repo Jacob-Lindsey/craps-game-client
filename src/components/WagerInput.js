@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import uuid from 'react-uuid';
 import calculateNewPayout from "../utils/calculateNewPayout";
 import WagerInfo from "./WagerInfo";
 
@@ -29,7 +30,7 @@ const WagerInput = (props) => {
     }, [addToBalance]);
 
     const handleAddBet = () => {
-        const newBet = selectBet ? selectBet : null;
+        const newBet = selectBet ? {...selectBet} : null;
         if (!newBet) {
             setError('Select a Bet');
             return;
@@ -41,7 +42,11 @@ const WagerInput = (props) => {
             return;
         }
 
+        const betId = uuid();
+        newBet.id = betId;
+
         const chip = {
+            id: betId,
             number: +newBet.wager,
             position: newBet.position,
             type: newBet.type,

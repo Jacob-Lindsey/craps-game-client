@@ -73,6 +73,8 @@ const Game = () => {
                             currentBets={currentBets}
                             setCurrentBets={setCurrentBets}
                             setBalance={setBalance}
+                            chips={chips}
+                            setChips={setChips}
                         />
                     </div>                
                 </div>

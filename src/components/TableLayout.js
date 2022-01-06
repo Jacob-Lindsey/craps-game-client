@@ -40,7 +40,8 @@ const TableLayout = (props) => {
                 {chips.length && chips.map((chip, index) => {
                     if (chip.type === 'inside') {
                         return (
-                            <Chip 
+                            <Chip
+                                key={chip.id}
                                 number={chip.number}
                                 position={chip.position}
                             />
@@ -96,10 +97,11 @@ const TableLayout = (props) => {
                     onClick={() => setSelectBet(bet)}
                 />
                 <div className="field">
-                    {chips.length && chips.map((chip, index) => {
+                    {chips.length > 0 && chips.map((chip, index) => {
                         if (chip.type === 'field') {
                             return (
-                                <Chip 
+                                <Chip
+                                    key={chip.id}
                                     number={chip.number}
                                     position={chip.position}
                                 />
@@ -238,10 +240,11 @@ const TableLayout = (props) => {
                     onClick={() => setSelectBet(bet)}
                 />
                 <div className="big-six">
-                    {chips.length && chips.map((chip, index) => {
+                    {chips.length > 0 && chips.map((chip, index) => {
                         if (chip.type === 'big6') {
                             return (
-                                <Chip 
+                                <Chip
+                                    key={chip.id}
                                     number={chip.number}
                                     position={chip.position}
                                 />
@@ -256,10 +259,11 @@ const TableLayout = (props) => {
                     />
                 </div>
                 <div className="big-eight">
-                    {chips.length && chips.map((chip, index) => {
+                    {chips.length > 0 && chips.map((chip, index) => {
                         if (chip.type === 'big8') {
                             return (
-                                <Chip 
+                                <Chip
+                                    key={chip.id}
                                     number={chip.number}
                                     position={chip.position}
                                 />
@@ -280,10 +284,11 @@ const TableLayout = (props) => {
                     onClick={() => setSelectBet(bet)}
                 />
                 <div className="prop-bets">
-                    {chips.length && chips.map((chip, index) => {
+                    {chips.length > 0 && chips.map((chip, index) => {
                         if (chip.type === 'prop') {
                             return (
-                                <Chip 
+                                <Chip
+                                    key={chip.id}
                                     number={chip.number}
                                     position={chip.position}
                                 />
@@ -321,10 +326,11 @@ const TableLayout = (props) => {
                         onClick={() => setSelectBet(bet)}
                     />
                     <div className="prop-2-3-12">
-                        {chips.length && chips.map((chip, index) => {
+                        {chips.length > 0 && chips.map((chip, index) => {
                             if (chip.type === 'prop-2-3-12') {
                                 return (
-                                    <Chip 
+                                    <Chip
+                                        key={chip.id}
                                         number={chip.number}
                                         position={chip.position}
                                     />

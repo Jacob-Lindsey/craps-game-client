@@ -6,6 +6,8 @@ const BetHistory = (props) => {
     const currentBets = props.currentBets;
     const setCurrentBets = props.setCurrentBets;
     const setBalance = props.setBalance;
+    const chips = props.chips;
+    const setChips = props.setChips;
 
     return (
         <div className='history-wrapper card'>
@@ -18,12 +20,12 @@ const BetHistory = (props) => {
             </div>
                 {currentBets && currentBets.slice(0).reverse().map((bet, index) => {
                     return (
-                        <div className='current-bet-details card' key={index}>
+                        <div className='current-bet-details card' key={bet.id}>
                             <h2>{bet.betName}</h2>
                             <p>{bet.winConditions && bet.winConditions.join(", ")}</p>
                             <p>{bet.payout.toFixed(1)}</p>
                             <p>{bet.wager}</p>
-                            <Delete onClick={() => removeBet(bet, setBalance, currentBets, setCurrentBets)} />
+                            <Delete onClick={() => removeBet(bet, setBalance, currentBets, setCurrentBets, chips, setChips)} />
                         </div>
                     )
                 })}
