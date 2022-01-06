@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, SnackbarContent } from '@mui/material';
+import { SnackbarContent } from '@mui/material';
 import { Snackbar } from '@mui/material';
 import TableLayout from './TableLayout';
 import DieFace from './DieFace';
@@ -8,7 +8,6 @@ import RollHistory from './RollHistory';
 import WagerInput from './WagerInput';
 
 import '../App.css';
-import { fontWeight } from '@mui/system';
 
 const Game = () => {
 
@@ -22,6 +21,7 @@ const Game = () => {
     const [point, setPoint] = useState();
     const [gameMessage, setGameMessage] = useState();
     const [open, setOpen] = useState(false);
+    const [chips, setChips] = useState([]);
 
     const handleClose = () => {
         setOpen(false);
@@ -35,6 +35,7 @@ const Game = () => {
                         <div className='play-field-wrapper card'>
                                 <TableLayout 
                                     bet={bet}
+                                    chips={chips}
                                     streak={streak}
                                     point={point}
                                     setBet={setBet}
@@ -47,6 +48,7 @@ const Game = () => {
                             <WagerInput
                                 balance={balance}
                                 setBalance={setBalance}
+                                setChips={setChips}
                                 selectBet={selectBet}
                                 setSelectBet={setSelectBet}
                                 wagerAmount={wagerAmount}

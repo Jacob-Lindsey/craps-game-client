@@ -7,6 +7,7 @@ const WagerInput = (props) => {
     const [error, setError] = useState();
 
     const balance = props.balance;
+    const setChips = props.setChips;
     const setBalance = props.setBalance;
     const selectBet = props.selectBet;
     const setSelectBet = props.setSelectBet;
@@ -39,7 +40,14 @@ const WagerInput = (props) => {
             setError('Minimum Bet is 5');
             return;
         }
+
+        const chip = {
+            number: +newBet.wager,
+            position: newBet.position,
+        };
+
         setError(null);
+        setChips(prevChips => [...prevChips, chip]);
         setBalance(prevBalance => prevBalance - newBet.wager);
         setCurrentBets(oldCurrentBets => [...oldCurrentBets, newBet]);
     };

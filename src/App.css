@@ -24,6 +24,46 @@ body {
   position: absolute;
 }
 
+.chip-5,
+.chip-10,
+.chip-25,
+.chip-100 {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  font-size: 0.87rem;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  outline-offset: -3px;
+  position: absolute;
+  width: 48px;
+}
+
+.chip-5 {
+  background-color: rgb(177, 0, 0);
+  color: #fff;
+  outline: 2px dashed rgba(238, 238, 238, 0.856);
+}
+
+.chip-10 {
+  background-color: blue;
+  color: #fff;
+  outline: 2px dashed rgba(238, 238, 238, 0.767);
+}
+
+.chip-25 {
+  background-color: orange;
+  color: #000;
+  outline: 2px dashed rgba(34, 34, 34, 0.767);
+}
+
+.chip-100 {
+  background-color: black;
+  color: rgb(217, 255, 2);
+  outline: 2px dashed rgba(255, 217, 0, 0.747);
+}
+
 .point-hidden {
   visibility: hidden;
 }
