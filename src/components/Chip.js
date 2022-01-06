@@ -2,11 +2,12 @@ const Chip = (props) => {
 
     const number = props.number;
     const pos = props.position;
+    const type = props.type;
 
-    const chip5 = <span className="chip-5" style={{ gridArea: `${pos}` }}>$5</span>
-    const chip10 = <span className="chip-10" style={{ gridArea: `${pos}` }}>$10</span>
-    const chip25 = <span className="chip-25" style={{ gridArea: `${pos}` }}>$25</span>
-    const chip100 = <span className="chip-100" style={{ gridArea: `${pos}` }}>$100</span>
+    const chip5 = <span className={`chip-5 ${pos}`}>$5</span>
+    const chip10 = <span className={`chip-10 ${pos}`}>$10</span>
+    const chip25 = <span className={`chip-25 ${pos}`}>$25</span>
+    const chip100 = <span className={`chip-100 ${pos}`}>$100</span>
     let chip;
 
     if (number === 5) {

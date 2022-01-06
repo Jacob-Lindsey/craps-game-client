@@ -44,6 +44,7 @@ const WagerInput = (props) => {
         const chip = {
             number: +newBet.wager,
             position: newBet.position,
+            type: newBet.type,
         };
 
         setError(null);

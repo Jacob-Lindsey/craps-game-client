@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { Tooltip, tooltipClasses } from '@mui/material';
-import { passLine, dontPassLine, come, dontCome, field, place, lay, buy, any7, anyCraps, propTwo, propThree, propEleven, propTwelve, big6or8, hardway } from '../utils/bets';
+import { passLine, dontPassLine, come, dontCome, field, place, lay, buy, any7, anyCraps, propTwo, propThree, propEleven, propTwelve, big6, big8, hardway } from '../utils/bets';
 import OnOffButton from './OnOffButton';
 import Chip from './Chip';
 
@@ -38,12 +38,14 @@ const TableLayout = (props) => {
         <CustomTooltip title={tooltipContent} followCursor>            
             <div className="board-grid">
                 {chips.length && chips.map((chip, index) => {
-                    return (
-                        <Chip 
-                            number={chip.number}
-                            position={chip.position}
-                        />
-                    )
+                    if (chip.type === 'inside') {
+                        return (
+                            <Chip 
+                                number={chip.number}
+                                position={chip.position}
+                            />
+                        )
+                    }
                 })}
                 <OnOffButton point={point} />
                 <div className="streak-counter">{streak > 4 ? 'HOT STREAK: ' + streak : ''}</div>
@@ -94,6 +96,16 @@ const TableLayout = (props) => {
                     onClick={() => setSelectBet(bet)}
                 />
                 <div className="field">
+                    {chips.length && chips.map((chip, index) => {
+                        if (chip.type === 'field') {
+                            return (
+                                <Chip 
+                                    number={chip.number}
+                                    position={chip.position}
+                                />
+                            )
+                        }
+                    })}
                     <div
                         className="field-2" 
                         onMouseEnter={() => setBet(field('Player', wager, 2))} 
@@ -120,7 +132,7 @@ const TableLayout = (props) => {
                 />
                 <div
                     className="passline-left" 
-                    onMouseEnter={() => setBet(passLine('Player', 10))} 
+                    onMouseEnter={() => setBet(passLine('Player', wager))} 
                     onMouseLeave={() => setBet(null)}
                     onClick={() => setSelectBet(bet)}
                 />
@@ -226,28 +238,58 @@ const TableLayout = (props) => {
                     onClick={() => setSelectBet(bet)}
                 />
                 <div className="big-six">
+                    {chips.length && chips.map((chip, index) => {
+                        if (chip.type === 'big6') {
+                            return (
+                                <Chip 
+                                    number={chip.number}
+                                    position={chip.position}
+                                />
+                            )
+                        }
+                    })}
                     <div
                         className="big-six-bet" 
-                        onMouseEnter={() => setBet(big6or8('Player', wager, 6))} 
+                        onMouseEnter={() => setBet(big6('Player', wager))} 
                         onMouseLeave={() => setBet(null)}
                         onClick={() => setSelectBet(bet)}
                     />
                 </div>
                 <div className="big-eight">
+                    {chips.length && chips.map((chip, index) => {
+                        if (chip.type === 'big8') {
+                            return (
+                                <Chip 
+                                    number={chip.number}
+                                    position={chip.position}
+                                />
+                            )
+                        }
+                    })}
                     <div
                         className="big-eight-bet" 
-                        onMouseEnter={() => setBet(big6or8('Player', wager, 8))} 
+                        onMouseEnter={() => setBet(big8('Player', wager))} 
                         onMouseLeave={() => setBet(null)}
                         onClick={() => setSelectBet(bet)}
                     />
                 </div>
                 <div
                     className="passline-bottom" 
-                    onMouseEnter={() => setBet(passLine('Player', 10))} 
+                    onMouseEnter={() => setBet(passLine('Player', wager))} 
                     onMouseLeave={() => setBet(null)}
                     onClick={() => setSelectBet(bet)}
                 />
                 <div className="prop-bets">
+                    {chips.length && chips.map((chip, index) => {
+                        if (chip.type === 'prop') {
+                            return (
+                                <Chip 
+                                    number={chip.number}
+                                    position={chip.position}
+                                />
+                            )
+                        }
+                    })}
                     <div
                         className="any-7" 
                         onMouseEnter={() => setBet(any7('Player', wager))} 
@@ -279,6 +321,16 @@ const TableLayout = (props) => {
                         onClick={() => setSelectBet(bet)}
                     />
                     <div className="prop-2-3-12">
+                        {chips.length && chips.map((chip, index) => {
+                            if (chip.type === 'prop-2-3-12') {
+                                return (
+                                    <Chip 
+                                        number={chip.number}
+                                        position={chip.position}
+                                    />
+                                )
+                            }
+                        })}
                         <div 
                             className="ace-deuce"
                             onMouseEnter={() => setBet(propThree('Player', wager))} 
