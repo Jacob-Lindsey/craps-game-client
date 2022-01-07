@@ -22,8 +22,8 @@ const BetHistory = () => {
                         <div className='current-bet-details card' key={bet.id}>
                             <h2>{bet.betName}</h2>
                             <p>{bet.winConditions && bet.winConditions.join(", ")}</p>
-                            <p>{bet.payout.toFixed(1)}</p>
-                            <p>{bet.wager}</p>
+                            <p>${bet.payout.toFixed(2)}</p>
+                            <p>${bet.wager}</p>
                             <Delete onClick={() => removeBet(bet, setBalance, currentBets, setCurrentBets, chips, setChips)} />
                         </div>
                     )

@@ -3,14 +3,14 @@ import useStickyState from "../utils/useStickyState";
 
 export const useGlobalState = () => {
 
-    const [testState, setTestState] = useState('TEST STATE WORKS');
     const [bet, setBet] = useState();
+    const [betPreview, setBetPreview] = useState();
     const [streak, setStreak] = useState(0);
     const [selectBet, setSelectBet] = useState();
     const [currentBets, setCurrentBets] = useState([]);
-    const [wagerAmount, setWagerAmount] = useState(0);
+    const [wagerAmount, setWagerAmount] = useState(5);
     const [rollHistory, setRollHistory] = useState([]);
-    const [point, setPoint] = useState();
+    const [point, setPoint] = useState(null);
     const [gameMessage, setGameMessage] = useState();
     const [open, setOpen] = useState(false);
     const [chips, setChips] = useState([]);
@@ -19,9 +19,9 @@ export const useGlobalState = () => {
     const [balance, setBalance] = useStickyState(0, 'balance');
 
     return {
-        testState,
         balance,
         bet,
+        betPreview,
         streak,
         selectBet,
         currentBets,
@@ -31,9 +31,9 @@ export const useGlobalState = () => {
         gameMessage,
         open,
         chips,
-        setTestState,
         setBalance,
         setBet,
+        setBetPreview,
         setStreak,
         setSelectBet,
         setCurrentBets,

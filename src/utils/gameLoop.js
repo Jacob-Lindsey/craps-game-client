@@ -1,4 +1,15 @@
-const gameLoop = (balance, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak) => {
+import evaluateBet from "./evaluateBet";
+
+const gameLoop = (balance, currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips) => {
+
+    // evaluateBet(bet, isComeOutRoll?, rollValue, setBalance, point)
+
+    currentBets.forEach((bet, index) => {
+        evaluateBet(bet, setCurrentBets, !point, rollValue, setBalance, point, chips, setChips);
+    });
+
+
+
     if (rollValue === 2 || rollValue === 3 || rollValue === 12) {
         if (!point) {
             setGameMessage(`Craps ${rollValue}... Next shooter.`);

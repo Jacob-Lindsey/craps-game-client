@@ -68,7 +68,10 @@ const TableLayout = () => {
         } else if (!bet.betName) {
             setError('Select a Bet');
             return;
-        }
+        } /* else if (!point && (bet.betName !== 'Pass Line' || bet.betName !== "Don't Pass Line")) {
+            setError("Pass Line and Don't Pass Line are the only valid bets during the come out roll.");
+            return;
+        } */
 
         const betId = uuid();
         newBet.id = betId;

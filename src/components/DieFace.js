@@ -15,6 +15,8 @@ const DieFace = () => {
 
     const { balance, setBalance } = useStore();
     const { point, setPoint } = useStore();
+    const { currentBets, setCurrentBets } = useStore();
+    const { chips, setChips } = useStore();
     const { setGameMessage } = useStore();
     const { setOpen } = useStore();
     const { setRollHistory } = useStore();
@@ -38,7 +40,7 @@ const DieFace = () => {
         setP1(pips1);
         setP2(pips2);
         setRollHistory(oldRollHistory => [...oldRollHistory, [pips1,pips2]]);
-        gameLoop(balance, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak);
+        gameLoop(balance, currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips);
     };
 
     return (

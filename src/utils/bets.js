@@ -6,7 +6,7 @@ const passLine = (player, wager) => {
     let bet = {
         betName: 'Pass Line',
         contract: true,
-        loseConditions: [],
+        loseConditions: [7],
         odds: odds,
         payout: payout,
         persistent: true,
@@ -38,7 +38,7 @@ const dontPassLine = (player, wager) => {
         point: null,
         type: 'inside',
         wager: +wager,
-        winConditions: [],
+        winConditions: [7],
     }
 
     return bet;
@@ -58,7 +58,7 @@ const come = (player, wager, number) => {
         persistent: true,
         player: player,
         position: 'come',
-        point: number,
+        point: null,
         type: 'inside',
         wager: +wager,
         winConditions: [number],
@@ -155,7 +155,7 @@ const place = (player, wager, number) => {
     let bet = {
         betName: 'Place',
         contract: false,
-        loseConditions: [],
+        loseConditions: [7],
         number: number,
         odds: odds,
         payout: payout,
@@ -164,7 +164,7 @@ const place = (player, wager, number) => {
         position: position,
         type: 'inside',
         wager: +wager,
-        winConditions: [],
+        winConditions: [number],
     }
 
     return bet;
@@ -231,7 +231,7 @@ const buy = (player, wager, number) => {
     let bet = {
         betName: 'Buy',
         contract: false,
-        loseConditions: [number],
+        loseConditions: [7],
         number: number,
         odds: odds,
         payout: payout,
@@ -240,7 +240,7 @@ const buy = (player, wager, number) => {
         position: position,
         type: 'inside',
         wager: +wager,
-        winConditions: [7],
+        winConditions: [number],
     }
 
     return bet;
@@ -292,7 +292,7 @@ const any7 = (player, wager) => {
     let bet = {
         betName: 'Any',
         contract: false,
-        loseConditions: [],
+        loseConditions: [2,3,4,5,6,8,9,10,11,12],
         number: 7,
         odds: odds,
         payout: payout,
@@ -301,7 +301,7 @@ const any7 = (player, wager) => {
         position: position,
         type: 'prop',
         wager: +wager,
-        winConditions: [],
+        winConditions: [7],
     }
 
     return bet;
@@ -399,7 +399,6 @@ const propTwelve = (player, wager) => {
     return bet;
 };
 
-
 const anyCraps = (player, wager) => {
 
     let odds = 7;
@@ -422,86 +421,6 @@ const anyCraps = (player, wager) => {
 
     return bet;
 };
-
-/* const craps2or12 = (player, wager) => {
-
-    let odds = 30;
-    let payout = +wager + (wager*odds);
-
-    let bet = {
-        betName: 'Craps 2 or 12',
-        contract: false,
-        loseConditions: [3,4,5,6,7,8,9,10,11],
-        odds: odds,
-        payout: payout,
-        persistent: false,
-        player: player,
-        wager: +wager,
-        winConditions: [2,12],
-    }
-
-    return bet;
-};
-
-const craps3or11 = (player, wager) => {
-
-    let odds = 15;
-    let payout = +wager + (wager*odds);
-
-    let bet = {
-        betName: 'Craps 3 or 11',
-        contract: false,
-        loseConditions: [2,4,5,6,7,8,9,10,12],
-        odds: odds,
-        payout: payout,
-        persistent: false,
-        player: player,
-        wager: +wager,
-        winConditions: [3,11],
-    }
-
-    return bet;
-};
-
-const horn3or11 = (player, wager) => {
-
-    let odds = 3.75;
-    let payout = +wager + (wager*odds);
-
-    let bet = {
-        betName: 'Horn 3 or 11',
-        contract: false,
-        loseConditions: [2,4,5,6,7,8,9,10,12],
-        odds: odds,
-        payout: payout,
-        persistent: false,
-        player: player,
-        wager: +wager,
-        winConditions: [3,11],
-    }
-
-    return bet;
-};
-
-const horn2or12 = (player, wager) => {
-
-    let odds = 7.5;
-    let payout = +wager + (wager*odds);
-
-    let bet = {
-        betName: 'Horn 2 or 12',
-        contract: false,
-        loseConditions: [3,4,5,6,7,8,9,10,11],
-        odds: odds,
-        payout: payout,
-        persistent: false,
-        player: player,
-        wager: +wager,
-        winConditions: [2,12],
-    }
-
-    return bet;
-}; */
 
 const big6 = (player, wager) => {
 
