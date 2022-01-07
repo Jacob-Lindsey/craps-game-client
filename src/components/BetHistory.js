@@ -1,13 +1,12 @@
+import { useStore } from "../store/useStore";
 import removeBet from "../utils/removeBet";
 import { Delete } from "@material-ui/icons";
 
-const BetHistory = (props) => {
+const BetHistory = () => {
 
-    const currentBets = props.currentBets;
-    const setCurrentBets = props.setCurrentBets;
-    const setBalance = props.setBalance;
-    const chips = props.chips;
-    const setChips = props.setChips;
+    const { chips, setChips } = useStore();
+    const { currentBets, setCurrentBets } = useStore();
+    const { setBalance } = useStore();
 
     return (
         <div className='history-wrapper card'>

@@ -2,7 +2,6 @@ const Chip = (props) => {
 
     const number = props.number;
     const pos = props.position;
-    const type = props.type;
 
     const chip5 = <span className={`chip-5 centered ${pos}`}>$5</span>
     const chip10 = <span className={`chip-10 centered ${pos}`}>$10</span>

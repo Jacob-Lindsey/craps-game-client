@@ -1,6 +1,8 @@
-const RollHistory = (props) => {
+import { useStore } from "../store/useStore";
 
-    const rollHistory = props.rollHistory;
+const RollHistory = () => {
+
+    const { rollHistory } = useStore();
 
     return (
         <div className='roll-history card'>

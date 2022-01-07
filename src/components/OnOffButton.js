@@ -1,11 +1,12 @@
-const OnOffButton = (props) => {
+import { useStore } from "../store/useStore";
 
-    const point = props.point;
+const OnOffButton = () => {
+
+    const { point } = useStore();
 
     return (
         <span className={`marker-button point-${point ? point : 'hidden'}`}>ON</span>
     )
-
 };
 
 export default OnOffButton;

@@ -2,23 +2,38 @@ import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tooltip, tooltipClasses } from '@mui/material';
 import uuid from 'react-uuid';
-import { passLine, dontPassLine, come, dontCome, field, place, lay, buy, any7, anyCraps, propTwo, propThree, propEleven, propTwelve, big6, big8, hardway } from '../utils/bets';
+import { useStore } from '../store/useStore';
+import { 
+    passLine,
+    dontPassLine, 
+    come, 
+    dontCome, 
+    field, 
+    place, 
+    lay, 
+    buy, 
+    any7, 
+    anyCraps, 
+    propTwo, 
+    propThree, 
+    propEleven, 
+    propTwelve, 
+    big6, 
+    big8, 
+    hardway 
+} from '../utils/bets';
 import OnOffButton from './OnOffButton';
 import Chip from './Chip';
 
-const TableLayout = (props) => {
+const TableLayout = () => {
 
-    const balance = props.balance;
-    const bet = props.bet;
-    const chips = props.chips;
-    const streak = props.streak;
-    const point = props.point;
-    const setBalance = props.setBalance;
-    const setBet = props.setBet;
-    const setChips = props.setChips;
-    const setCurrentBets = props.setCurrentBets;
-    const setSelectBet = props.setSelectBet;
-    const wagerAmount = props.wagerAmount;
+    const { balance, setBalance } = useStore();
+    const { bet, setBet } = useStore();
+    const { chips, setChips } = useStore();
+    const { streak } = useStore();
+    const { point } = useStore();
+    const { setCurrentBets } = useStore();
+    const { wagerAmount } = useStore();
 
     const [error, setError] = useState();
 

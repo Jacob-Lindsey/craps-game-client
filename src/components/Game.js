@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useStore } from '../store/useStore';
 import { SnackbarContent } from '@mui/material';
 import { Snackbar } from '@mui/material';
 import TableLayout from './TableLayout';
@@ -6,22 +6,12 @@ import DieFace from './DieFace';
 import BetHistory from './BetHistory';
 import RollHistory from './RollHistory';
 import WagerInput from './WagerInput';
-
 import '../App.css';
 
 const Game = () => {
 
-    const [balance, setBalance] = useState(0);
-    const [bet, setBet] = useState();
-    const [streak, setStreak] = useState(0);
-    const [selectBet, setSelectBet] = useState();
-    const [currentBets, setCurrentBets] = useState([]);
-    const [wagerAmount, setWagerAmount] = useState(0);
-    const [rollHistory, setRollHistory] = useState([]);
-    const [point, setPoint] = useState();
-    const [gameMessage, setGameMessage] = useState();
-    const [open, setOpen] = useState(false);
-    const [chips, setChips] = useState([]);
+    const { gameMessage } = useStore();
+    const { open, setOpen } = useStore();
 
     const handleClose = () => {
         setOpen(false);
@@ -33,49 +23,17 @@ const Game = () => {
                 <div className='page-wrapper'>
                     <div className='page-top'>
                         <div className='play-field-wrapper card'>
-                                <TableLayout
-                                    balance={balance}
-                                    bet={bet}
-                                    chips={chips}
-                                    streak={streak}
-                                    point={point}
-                                    setBet={setBet}
-                                    setBalance={setBalance}
-                                    setChips={setChips}
-                                    setCurrentBets={setCurrentBets}
-                                    setSelectBet={setSelectBet}
-                                    wagerAmount={wagerAmount}
-                                />
+                                <TableLayout />
                             <img src='/Craps_table_layout.png' alt='' />
                         </div>
                         <div className='game-controls-wrapper'>
-                            <WagerInput
-                                balance={balance}
-                                setBalance={setBalance}
-                                wagerAmount={wagerAmount}
-                                setWagerAmount={setWagerAmount}
-                            />
-                            <DieFace
-                                setRollHistory={setRollHistory}
-                                balance={balance}
-                                setStreak={setStreak}
-                                setBalance={setBalance}
-                                point={point}
-                                setPoint={setPoint}
-                                setGameMessage={setGameMessage}
-                                setOpen={setOpen}
-                            />
+                            <WagerInput />
+                            <DieFace />
                         </div>
                     </div>
                     <div className='page-bottom'>
-                        <RollHistory rollHistory={rollHistory} />
-                        <BetHistory 
-                            currentBets={currentBets}
-                            setCurrentBets={setCurrentBets}
-                            setBalance={setBalance}
-                            chips={chips}
-                            setChips={setChips}
-                        />
+                        <RollHistory />
+                        <BetHistory />
                     </div>                
                 </div>
             </div>
@@ -87,7 +45,6 @@ const Game = () => {
                         autoHideDuration={4000}
                         onClose={handleClose}
                         key={Date.now}
-                        
                     >
                         <SnackbarContent 
                             style={{

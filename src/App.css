@@ -43,8 +43,6 @@ body {
   font-weight: 600;
   height: 48px;
   justify-content: center;
-  outline-offset: -3px;
-  
   width: 48px;
 }
 
@@ -67,7 +65,7 @@ body {
 .chip-25 {
   background-color: orange;
   color: #000;
-  outline: 2px dashed rgba(34, 34, 34, 0.767);
+  outline: 2px dashed rgba(34, 34, 34, 0.897);
 }
 
 .chip-100 {
@@ -134,11 +132,17 @@ body {
 
 .selected {
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.815), -1px -1px 3px rgba(0, 0, 0, 0.25);
+  transform: scale(1.04);
 }
 
 .chip-wrapper {
   border-radius: 8px;
   padding: 25% 16%;
+  transition: all 0.1s ease;
+}
+
+.chip-wrapper:hover {
+  outline: 2px solid rgba(144, 238, 144, 0.575);
 }
 
 .chip-label {

@@ -1,11 +1,10 @@
 import { useCallback, useEffect } from "react";
+import { useStore } from "../store/useStore";
 
-const WagerInput = (props) => {
+const WagerInput = () => {
 
-    const balance = props.balance;
-    const setBalance = props.setBalance;
-    const wagerAmount = props.wagerAmount;
-    const setWagerAmount = props.setWagerAmount;
+    const { balance, setBalance } = useStore();
+    const { wagerAmount, setWagerAmount } = useStore();
 
     const addToBalance = useCallback((e) => {
         if (e.key === '+') {
@@ -20,11 +19,8 @@ const WagerInput = (props) => {
         };
     }, [addToBalance]);
 
-    
-
     const updateWager = (val) => {
         setWagerAmount(val);
-
     };
 
     return (
@@ -40,8 +36,6 @@ const WagerInput = (props) => {
                     <span className="chip-label">$10</span>
                     <span className="chip-label">$25</span>
                     <span className="chip-label">$100</span>
-                    {/* {error && <span className="input-error-msg">{error}</span>} */}
-                    
                 </span>
             </div>       
         </div>
