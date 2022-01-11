@@ -25,7 +25,7 @@ const WagerInput = () => {
 
     return (
         <div className='wager-wrapper card'>
-            <div className='card-header-top header-fixed'>Wager - Balance: {balance ? balance : 0}</div>
+            <div className='card-header-top header-fixed'>Balance: ${balance ? balance.toFixed(2) : 0}</div>
             <div className='card-body'>
                 <span className="input-wrapper">
                     <span className={`chip-wrapper ${wagerAmount === 5 ? 'selected' : null}`} onClick={() => updateWager(5)}>

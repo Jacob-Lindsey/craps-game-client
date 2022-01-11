@@ -13,6 +13,7 @@ export const useGlobalState = () => {
     const [point, setPoint] = useState(null);
     const [gameMessage, setGameMessage] = useState();
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState();
     const [chips, setChips] = useState([]);
 
     // Uses a custom hook to persist the chip balance in localStorage  
@@ -30,6 +31,7 @@ export const useGlobalState = () => {
         point,
         gameMessage,
         open,
+        error,
         chips,
         setBalance,
         setBet,
@@ -42,6 +44,7 @@ export const useGlobalState = () => {
         setPoint,
         setGameMessage,
         setOpen,
+        setError,
         setChips,
     };
 };

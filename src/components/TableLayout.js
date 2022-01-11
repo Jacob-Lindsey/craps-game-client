@@ -30,12 +30,11 @@ const TableLayout = () => {
     const { balance, setBalance } = useStore();
     const { bet, setBet } = useStore();
     const { chips, setChips } = useStore();
+    const { error, setError } = useStore();
     const { streak } = useStore();
     const { point } = useStore();
     const { setCurrentBets } = useStore();
     const { wagerAmount } = useStore();
-
-    const [error, setError] = useState();
 
     const wager = wagerAmount ? wagerAmount : 0;
     
@@ -44,7 +43,6 @@ const TableLayout = () => {
                                     <span className="tooltip-body">
                                         <span>Odds: {bet.odds.toFixed(2)}:1</span>  
                                     </span>
-                                    
                                  </div> : '';
 
     const CustomTooltip = styled(({ className, ...props }) => (
@@ -62,16 +60,13 @@ const TableLayout = () => {
         if (newBet.wager > balance) {
             setError('Insufficient Balance');
             return;
-        } else if (newBet.wager < 5) {
-            setError('Minimum Bet is 5');
+        } else if (!point && (bet.betName === "Come" || bet.betName === "Don't Come")) {
+            setError('Come bets may only be placed after the come out roll.');
             return;
-        } else if (!bet.betName) {
-            setError('Select a Bet');
+        } else if (point && (bet.betName === "Pass Line" || bet.betName === "Don't Pass Line")) {
+            setError("Pass/Don't Pass bets may only be place before the come out roll.");
             return;
-        } /* else if (!point && (bet.betName !== 'Pass Line' || bet.betName !== "Don't Pass Line")) {
-            setError("Pass Line and Don't Pass Line are the only valid bets during the come out roll.");
-            return;
-        } */
+        }
 
         const betId = uuid();
         newBet.id = betId;
@@ -107,7 +102,7 @@ const TableLayout = () => {
                 {error && <span className="input-error-msg">{error}</span>}
                 <div className="streak-counter">{streak > 4 ? 'HOT STREAK: ' + streak : ''}</div>
                 <div className="dont-come" 
-                    onMouseEnter={() => setBet(dontCome('Player', wager, 4))}
+                    onMouseEnter={() => setBet(dontCome('Player', wager, point))}
                     onMouseLeave={() => setBet(null)}
                     onClick={() => handleAddBet(bet)}
                 />
@@ -148,7 +143,7 @@ const TableLayout = () => {
                     onClick={() => handleAddBet(bet)}
                 />
                 <div className="come" 
-                    onMouseEnter={() => setBet(come('Player', wager, 4))}
+                    onMouseEnter={() => setBet(come('Player', wager, point))}
                     onMouseLeave={() => setBet(null)}
                     onClick={() => handleAddBet(bet)}
                 />

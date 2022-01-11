@@ -5,7 +5,7 @@ const gameLoop = (balance, currentBets, setCurrentBets, setBalance, point, setPo
     // evaluateBet(bet, isComeOutRoll?, rollValue, setBalance, point)
 
     currentBets.forEach((bet, index) => {
-        evaluateBet(bet, setCurrentBets, !point, rollValue, setBalance, point, chips, setChips);
+        evaluateBet(index, bet, currentBets, setCurrentBets, !point, rollValue, setBalance, point, chips, setChips);
     });
 
 
