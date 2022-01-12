@@ -1,28 +1,19 @@
-const evaluateBet = (bet, currentBets, setCurrentBets, rollValue, setBalance, point, chips, setChips) => {
+// This function handles all of the rules logic, and returns the object ID of the bet if it is a losing bet. (Or if it is a one-time bet)
 
-    function filterChips() {
-        const filteredChips = chips && chips.filter((chip) => chip.id !== bet.id);
-        setChips(filteredChips);
-    };
-
-    function filterBets() {
-        const filteredBets = currentBets && currentBets.filter((cBet) => cBet.id !== bet.id);
-        setCurrentBets(filteredBets);
-    };
+const evaluateBet = (bet, currentBets, setCurrentBets, rollValue, setBalance, point, die1) => {
 
     function payWinningRoll() {
         return setBalance(prevBalance => prevBalance + (bet.payout + bet.wager));
     };
 
     function clearRoll() {
-        filterBets();
-        filterChips();
+        return bet.id;
     };
 
     if (!point) {
         if (bet.betName === "Don't Pass Line") {
             if (rollValue === 7 || rollValue === 11) {
-                clearRoll();
+                return clearRoll();
 
             } else if (rollValue === 2 || rollValue === 3) {
                 payWinningRoll();
@@ -55,7 +46,7 @@ const evaluateBet = (bet, currentBets, setCurrentBets, rollValue, setBalance, po
                 payWinningRoll();
 
             } else if (rollValue === 2 || rollValue === 3 || rollValue === 12) {
-                clearRoll();
+                return clearRoll();
 
             } else {
                 let currentBetsCopy = currentBets.map(cBet => {
@@ -91,12 +82,12 @@ const evaluateBet = (bet, currentBets, setCurrentBets, rollValue, setBalance, po
                 payWinningRoll();
                 
             } else if (rollValue === point) {
-                clearRoll();
+                return clearRoll();
             } 
 
         } else if (bet.betName === "Pass Line") {
             if (rollValue === 7) {
-                clearRoll();
+                return clearRoll();
                 
             } else if (rollValue === point) {
                 let currentBetsCopy = currentBets.map(cBet => {
@@ -111,36 +102,51 @@ const evaluateBet = (bet, currentBets, setCurrentBets, rollValue, setBalance, po
 
         } else if (bet.betName === "Come") {
             if (rollValue === 7) {
-                clearRoll();
+                return clearRoll();
                 
             } else if (rollValue === bet.winConditions[0]) {
                 payWinningRoll();
-                clearRoll();
+                return clearRoll();
             }
 
         } else if (bet.betName === "Don't Come") {
             if (rollValue === 7) {
                 payWinningRoll();
-                clearRoll();
+                return clearRoll();
                 
             } else if (rollValue === bet.loseConditions[0]) {
-                clearRoll();
+                return clearRoll();
+            }
+
+        } else if (bet.betName === "Hardway") {
+            
+            // Checks if both dice are the same value
+            if (bet.winConditions[0] === rollValue) {
+                if (die1 === (bet.winConditions[0]/2)) {
+                    payWinningRoll();
+                    return clearRoll();
+                } else {
+                    return clearRoll()
+                }
+            } else if (rollValue === 7) {
+                return clearRoll();
+            } else {
+                return null;
             }
 
         } else {
             if (bet.winConditions.includes(rollValue)) {
                 payWinningRoll();
                 if (!bet.persistent) {
-                    clearRoll();
+                    return clearRoll();
                 }
             } else if (bet.loseConditions.includes(rollValue)) {
-                clearRoll();
+                return clearRoll();
             }
         }
     }
 
-    // return a string of all bet results ???
-
+    return null;
 };
 
 export default evaluateBet;

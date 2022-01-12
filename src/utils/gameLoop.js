@@ -1,12 +1,21 @@
 import evaluateBet from "./evaluateBet";
 
-const gameLoop = (currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips) => {
+const gameLoop = (currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips, die1) => {
 
-    // evaluateBet(bet, isComeOutRoll?, rollValue, setBalance, point)
+    // Store bet object IDs in this array from evaluateBet()
+    let betsToRemove = [];
 
     for (const bet of currentBets) {
-        evaluateBet(bet, currentBets, setCurrentBets, rollValue, setBalance, point, chips, setChips);
+        betsToRemove.push(evaluateBet(bet, currentBets, setCurrentBets, rollValue, setBalance, point, die1));
     }
+    
+    // Create a new array excluding the objects whose IDs match the ones in betsToRemove
+    const filteredBets = currentBets && currentBets.filter(cBet => !betsToRemove.includes(cBet.id));
+    const filteredChips = chips && chips.filter(chip => !betsToRemove.includes(chip.id));
+
+    // Update the states with the filtered arrays
+    setCurrentBets(filteredBets);
+    setChips(filteredChips);
 
     if (rollValue === 2 || rollValue === 3 || rollValue === 12) {
         if (!point) {

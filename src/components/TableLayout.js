@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tooltip, tooltipClasses } from '@mui/material';
 import uuid from 'react-uuid';
@@ -54,6 +54,11 @@ const TableLayout = () => {
             padding: '0 1rem 1.5rem 1rem'
         },
     });
+
+    const handleRightClick = (e) => {
+        e.preventDefault();
+        console.log(e.target)
+    };
 
     const handleAddBet = () => {
         const newBet = bet ? {...bet} : null;
@@ -154,6 +159,7 @@ const TableLayout = () => {
                                 <Chip
                                     key={chip.id}
                                     number={chip.number}
+                                    onContextMenu={(e) => e.preventDefault()}
                                     position={chip.position}
                                 />
                             )
@@ -423,7 +429,6 @@ const TableLayout = () => {
             </div>
         </CustomTooltip>
     )
-
 };
 
 export default TableLayout;
