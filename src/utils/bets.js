@@ -316,7 +316,7 @@ const propEleven = (player, wager) => {
     let bet = {
         betName: 'Prop Bet - 11',
         contract: false,
-        loseConditions: [2,3,4,5,6,7,8,9,10.12],
+        loseConditions: [2,3,4,5,6,7,8,9,10,12],
         odds: odds,
         payout: payout,
         persistent: false,
@@ -339,7 +339,7 @@ const propThree = (player, wager) => {
     let bet = {
         betName: 'Prop Bet - Ace-Deuce',
         contract: false,
-        loseConditions: [2,4,5,6,7,8,9,10.11,12],
+        loseConditions: [2,4,5,6,7,8,9,10,11,12],
         odds: odds,
         payout: payout,
         persistent: false,
@@ -362,7 +362,7 @@ const propTwo = (player, wager) => {
     let bet = {
         betName: 'Prop Bet - Aces',
         contract: false,
-        loseConditions: [3,4,5,6,7,8,9,10.11,12],
+        loseConditions: [3,4,5,6,7,8,9,10,11,12],
         odds: odds,
         payout: payout,
         persistent: false,
@@ -385,7 +385,7 @@ const propTwelve = (player, wager) => {
     let bet = {
         betName: 'Prop Bet - 12',
         contract: false,
-        loseConditions: [2,3,4,5,6,7,8,9,10.11],
+        loseConditions: [2,3,4,5,6,7,8,9,10,11],
         odds: odds,
         payout: payout,
         persistent: false,

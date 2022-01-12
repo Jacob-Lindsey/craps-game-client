@@ -1,14 +1,12 @@
 import evaluateBet from "./evaluateBet";
 
-const gameLoop = (balance, currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips) => {
+const gameLoop = (currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips) => {
 
     // evaluateBet(bet, isComeOutRoll?, rollValue, setBalance, point)
 
-    currentBets.forEach((bet, index) => {
-        evaluateBet(index, bet, currentBets, setCurrentBets, !point, rollValue, setBalance, point, chips, setChips);
-    });
-
-
+    for (const bet of currentBets) {
+        evaluateBet(bet, currentBets, setCurrentBets, rollValue, setBalance, point, chips, setChips);
+    }
 
     if (rollValue === 2 || rollValue === 3 || rollValue === 12) {
         if (!point) {

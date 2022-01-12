@@ -40,7 +40,7 @@ const DieFace = () => {
         setP1(pips1);
         setP2(pips2);
         setRollHistory(oldRollHistory => [...oldRollHistory, [pips1,pips2]]);
-        gameLoop(balance, currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips);
+        gameLoop(currentBets, setCurrentBets, setBalance, point, setPoint, rollValue, setGameMessage, setOpen, setStreak, chips, setChips);
     };
 
     return (

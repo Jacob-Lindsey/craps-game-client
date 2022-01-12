@@ -1,16 +1,12 @@
-import { roll } from "./rollDice";
-
-const evaluateBet = (index, bet, currentBets, setCurrentBets, isComeOutRoll, rollValue, setBalance, point, chips, setChips) => {
-
-    console.log(rollValue)
+const evaluateBet = (bet, currentBets, setCurrentBets, rollValue, setBalance, point, chips, setChips) => {
 
     function filterChips() {
-        let filteredChips = chips && chips.filter(chip => chip.id !== bet.id);
+        const filteredChips = chips && chips.filter((chip) => chip.id !== bet.id);
         setChips(filteredChips);
     };
 
     function filterBets() {
-        let filteredBets = currentBets && currentBets.filter(cBet => cBet.id !== bet.id);
+        const filteredBets = currentBets && currentBets.filter((cBet) => cBet.id !== bet.id);
         setCurrentBets(filteredBets);
     };
 
@@ -19,8 +15,8 @@ const evaluateBet = (index, bet, currentBets, setCurrentBets, isComeOutRoll, rol
     };
 
     function clearRoll() {
-        filterChips();
         filterBets();
+        filterChips();
     };
 
     if (!point) {
@@ -134,12 +130,12 @@ const evaluateBet = (index, bet, currentBets, setCurrentBets, isComeOutRoll, rol
         } else {
             if (bet.winConditions.includes(rollValue)) {
                 payWinningRoll();
+                if (!bet.persistent) {
+                    clearRoll();
+                }
             } else if (bet.loseConditions.includes(rollValue)) {
                 clearRoll();
             }
-            /* if (!bet.persistent) {
-            
-            } */
         }
     }
 
