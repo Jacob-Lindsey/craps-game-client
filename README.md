@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+## In-browser Craps game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### [Play the game here!](https://craps--game.herokuapp.com/ "Craps Game")
 
-## Available Scripts
 
-In the project directory, you can run:
+### Rules of the game
 
-### `npm start`
+* **Pass Line**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  An even money bet, made on the first roll of the dice (known as the “come out roll”). You win if a 7 or 11 roll, or lose if 2, 3, or 12 roll (known as “craps”). Any other number that rolls becomes the “point” and the point must roll again before a 7 to win.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Don't Pass Line**
+ 
+  An even money bet, which is the opposite of the pass line. You lose on the “come out” roll if the shooter rolls a 7 or 11. You win on a 2 or 3 (12 is a tie). Once a point is established, you lose if the point is thrown and win if a 7 rolls.
 
-### `npm test`
+* **Come Bets**
+ 
+  Made anytime after the first roll when a shooter has a point to make. You win on a 7 or 11 and lose on a 2, 3 or 12. Any other number becomes your “come point” and must be repeated for you to win before a 7 rolls.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Don't Come Bets**
 
-### `npm run build`
+  Made anytime after the first roll when a shooter has a point to make. It is the opposite of the come bet. You win if 2 or 3 roll (12 is a tie), and lose if 7 or 11 roll. Any other number rolled becomes your “come point” and if repeated you lose. If a 7 rolls you win.
+  
+* **Place Bets**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Once a shooter makes a point, you may make a “place bet” on numbers 4, 5, 6, 8, 9, and 10. If the shooter rolls any of these numbers before a 7, you win the following payoffs: 9 to 5 on 4 and 10, 7 to 5 on 5 and 9, and 7 to 6 on 6 and 8. A “place bet” may be taken off anytime before the next roll.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **Field Bets**
+  
+  A one roll bet. You win even money on 3, 4, 9, 10 and 11. You win 2 to 1 on 2. You win 3 to 1 on 12. You lose on 5, 6, 7 or 8.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Proposition Bets**
+  
+  These bets are found in the center of the table and are one-roll bets. You are betting that on the very next roll of the dice any of these numbers will come up:
 
-### `npm run eject`
+    * Any Craps (2, 3 or 12)	pays 8 for 1
+    * Aces (2) or Twelve (12)	pays 31 for 1
+    * Ace-Deuce (3) or Eleven (11)	pays 16 for 1
+    * Seven (7)	pays 5 for 1
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* **Hardways**
+  
+  A Hardway bet is not a one-roll bet. You are betting that the shooter rolls a pair. Hardways win if the dice roll as a pair and lose if a 7 rolls or if the number is thrown “the easy way.” - **Example:** If you bet a hard 8 and the dice roll 4,4 you win. If the dice roll “easy” 5,3 or 6,2 you lose.
+  
+* **TIP**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  You can press '+' to add $100 to your balance if you run low on funds.
+  
+---
+  
+### Odds Table
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Bet Name | Odds | One Roll Bet?
+--- | --- | ---
+Pass Line | 1:1 | No
+Don't Pass | 1:1 | No
+Come | 1:1 | No
+Don't Come | 1:1 | No
+Field (center) | 1:1 | Yes
+Field (2/12) | 2:1 | Yes
+Place (4/10) | 9:5 | No
+Place (5/9) | 7:5 | No
+Place (6/8) | 6:5 | No
+Lay (4/10) | 1:2 | No
+Lay (5/9) | 2:3 | No
+Lay (6/8) | 5:6 | No
+Buy (4/10) | 2:1 | No
+Buy (5/9) | 3:2 | No
+Buy (6/8) | 6:5 | No
+Hardway (4/10) | 7:1 | No
+Hardway (6/8) | 9:1 | No
+Any-7 | 4:1 | Yes
+Any-Craps | 7:1 | Yes
+Prop (2) | 30:1 | Yes
+Prop (3) | 15:1 | Yes
+Prop (11) | 15:1 | Yes
+Prop (12) | 30:1 | Yes
+Big 6/8 | 1:1 | No
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **Javascript ES6**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **React**
 
-### Code Splitting
+* **Styled Components**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* **Material UI**
+  
+* **Chance.js**
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Game Screenshot](public/craps-screen-1.png?raw=true "Craps Game Screenshot")
