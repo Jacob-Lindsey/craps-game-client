@@ -1,5 +1,9 @@
 ## In-browser Craps game
 
+### [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+
+---
+
 ### Rules of the game
 
 * **Pass Line**
