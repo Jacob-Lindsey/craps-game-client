@@ -70,4 +70,6 @@ Prop (11) | 15:1 | Yes
 Prop (12) | 30:1 | Yes
 Big 6/8 | 1:1 | No
 
+---
+
 ![Game Screenshot](public/craps-screen-1.png?raw=true "Craps Game Screenshot")
