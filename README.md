@@ -84,4 +84,6 @@ Big 6/8 | 1:1 | No
   
 * **Chance.js**
 
+---
+
 ![Game Screenshot](public/craps-screen-1.png?raw=true "Craps Game Screenshot")
