@@ -13,7 +13,7 @@ const DieFace = () => {
     let pips1 = [];
     let pips2 = [];
 
-    const { balance, setBalance } = useStore();
+    const { setBalance } = useStore();
     const { point, setPoint } = useStore();
     const { currentBets, setCurrentBets } = useStore();
     const { chips, setChips } = useStore();
