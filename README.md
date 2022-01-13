@@ -37,6 +37,6 @@
 
 * **Hardaways**
   
-  A Hardway bet is not a one-roll bet. You are betting that the shooter rolls a pair. Hardways win if the dice roll as a pair and lose if a 7 rolls or if the number is thrown “the easy way.” Example: If you bet a hard 8 and thedice roll 4,4 you win. If the dice roll “easy” 5,3 or 6,2 you lose.
+  A Hardway bet is not a one-roll bet. You are betting that the shooter rolls a pair. Hardways win if the dice roll as a pair and lose if a 7 rolls or if the number is thrown “the easy way.” - **Example:** If you bet a hard 8 and thedice roll 4,4 you win. If the dice roll “easy” 5,3 or 6,2 you lose.
 
 ![Game Screenshot](public/craps-screen-1.png?raw=true "Craps Game Screenshot")
