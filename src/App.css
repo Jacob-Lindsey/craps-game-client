@@ -45,7 +45,8 @@ body {
 .chip-5,
 .chip-10,
 .chip-25,
-.chip-100 {
+.chip-100,
+.chip-custom {
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
@@ -83,6 +84,12 @@ body {
   background-color: black;
   color: rgb(217, 255, 2);
   outline: 2px dashed rgba(255, 217, 0, 0.747);
+}
+
+.chip-custom {
+  background-color: green;
+  color: rgb(255, 255, 255);
+  outline: 2px dashed rgba(0, 0, 0, 0.747);
 }
 
 .point-hidden {
@@ -414,7 +421,7 @@ body {
   color: #ddd;
   display: grid;
   font-weight: 700;
-  grid-template-columns: 20% 30% 18% 18% 16%;
+  grid-template-columns: 18% 28% 16% 17% 15% 5%;
   padding-left: 0.5rem;
   text-align: center;
   text-transform: uppercase;
@@ -440,7 +447,7 @@ body {
   border-radius: 8px;
   color: #ddd;
   display: grid;
-  grid-template-columns: 20% 30% 18% 18% 16%;
+  grid-template-columns: 18% 28% 16% 17% 15% 5%;
   margin: 0 0.5rem;
   padding: 0 0.75rem;
   text-align: center;

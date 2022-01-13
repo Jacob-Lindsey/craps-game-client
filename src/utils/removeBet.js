@@ -1,6 +1,6 @@
 export default function removeBet(bet, setBalance, currentBets, setCurrentBets, chips, point, setChips, setError) {
 
-    if (point) {
+    if (point && bet.contract) {
         setError(`${bet.betName} bet can't be removed while the point is active.`);
         return;
     }

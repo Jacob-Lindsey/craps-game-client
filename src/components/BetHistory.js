@@ -28,7 +28,7 @@ const BetHistory = () => {
                             <p>{bet.loseConditions && bet.loseConditions.join(", ")}</p>
                             <p>${bet.payout.toFixed(2)}</p>
                             <p>${bet.wager}</p>
-                            {/* <Delete onClick={() => removeBet(bet, setBalance, currentBets, setCurrentBets, chips, point, setChips, setError)} /> */}
+                            {<Delete onClick={() => removeBet(bet, setBalance, currentBets, setCurrentBets, chips, point, setChips, setError)} />}
                         </div>
                     )
                 })}

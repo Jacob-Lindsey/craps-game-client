@@ -1,6 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
 import { styled } from '@mui/material/styles';
-import { Tooltip, tooltipClasses } from '@mui/material';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import uuid from 'react-uuid';
 import { useStore } from '../store/useStore';
 import { 
@@ -54,12 +53,7 @@ const TableLayout = () => {
             padding: '0 1rem 1.5rem 1rem'
         },
     });
-
-    const handleRightClick = (e) => {
-        e.preventDefault();
-        console.log(e.target)
-    };
-
+      
     const handleAddBet = () => {
         const newBet = bet ? {...bet} : null;
         if (newBet.wager > balance) {
@@ -159,7 +153,6 @@ const TableLayout = () => {
                                 <Chip
                                     key={chip.id}
                                     number={chip.number}
-                                    onContextMenu={(e) => e.preventDefault()}
                                     position={chip.position}
                                 />
                             )

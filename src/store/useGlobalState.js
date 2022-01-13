@@ -17,7 +17,7 @@ export const useGlobalState = () => {
     const [chips, setChips] = useState([]);
 
     // Uses a custom hook to persist the chip balance in localStorage  
-    const [balance, setBalance] = useStickyState(0, 'balance');
+    const [balance, setBalance] = useStickyState(500, 'balance');
 
     return {
         balance,
