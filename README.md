@@ -43,32 +43,31 @@
   
 ### Odds Table
 
-Bet Name | Odds 
---- | --- 
-Pass Line | 1:1
-Don't Pass | 1:1
-Come | 1:1
-Don't Come | 1:1
-Field (center) | 1:1
-Field (2/12) | 2:1
-Place (4/10) | 9:5
-Place (5/9) | 7:5
-Place (6/8) | 6:5
-Lay (4/10) | 1:2
-Lay (5/9) | 2:3
-Lay (6/8) | 5:6
-Buy (4/10) | 2:1
-Buy (5/9) | 3:2
-Buy (6/8) | 6:5
-Hardway (4/10) | 7:1
-Hardway (6/8) | 9:1
-Any-7 | 4:1
-Any-Craps | 7:1
-Prop (2) | 30:1
-Prop (3) | 15:1
-Prop (11) | 15:1
-Prop (12) | 30:1
-Big 6/8 | 1:1
-
+Bet Name | Odds | One Roll Bet?
+--- | --- | ---
+Pass Line | 1:1 | No
+Don't Pass | 1:1 | No
+Come | 1:1 | No
+Don't Come | 1:1 | No
+Field (center) | 1:1 | Yes
+Field (2/12) | 2:1 | Yes
+Place (4/10) | 9:5 | No
+Place (5/9) | 7:5 | No
+Place (6/8) | 6:5 | No
+Lay (4/10) | 1:2 | No
+Lay (5/9) | 2:3 | No
+Lay (6/8) | 5:6 | No
+Buy (4/10) | 2:1 | No
+Buy (5/9) | 3:2 | No
+Buy (6/8) | 6:5 | No
+Hardway (4/10) | 7:1 | No
+Hardway (6/8) | 9:1 | No
+Any-7 | 4:1 | Yes
+Any-Craps | 7:1 | Yes
+Prop (2) | 30:1 | Yes
+Prop (3) | 15:1 | Yes
+Prop (11) | 15:1 | Yes
+Prop (12) | 30:1 | Yes
+Big 6/8 | 1:1 | No
 
 ![Game Screenshot](public/craps-screen-1.png?raw=true "Craps Game Screenshot")
