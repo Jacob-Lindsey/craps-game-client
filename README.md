@@ -2,7 +2,6 @@
 
 ### [Play the game here!](https://craps--game.herokuapp.com/ "Craps Game")
 
----
 
 ### Rules of the game
 
