@@ -35,9 +35,9 @@
     * Ace-Deuce (3) or Eleven (11)	pays 16 for 1
     * Seven (7)	pays 5 for 1
 
-* **Hardaways**
+* **Hardways**
   
-  A Hardway bet is not a one-roll bet. You are betting that the shooter rolls a pair. Hardways win if the dice roll as a pair and lose if a 7 rolls or if the number is thrown “the easy way.” - **Example:** If you bet a hard 8 and thedice roll 4,4 you win. If the dice roll “easy” 5,3 or 6,2 you lose.
+  A Hardway bet is not a one-roll bet. You are betting that the shooter rolls a pair. Hardways win if the dice roll as a pair and lose if a 7 rolls or if the number is thrown “the easy way.” - **Example:** If you bet a hard 8 and the dice roll 4,4 you win. If the dice roll “easy” 5,3 or 6,2 you lose.
   
 ---
   
@@ -71,5 +71,17 @@ Prop (12) | 30:1 | Yes
 Big 6/8 | 1:1 | No
 
 ---
+
+### Technologies Used
+
+* **Javascript ES6**
+
+* **React**
+
+* **Styled Components**
+
+* **Material UI**
+  
+* **Chance.js**
 
 ![Game Screenshot](public/craps-screen-1.png?raw=true "Craps Game Screenshot")
