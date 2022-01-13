@@ -480,14 +480,10 @@ module.exports = {
     any7,
     anyCraps,
     hardway,
-    /* craps2or12,
-    craps3or11, */
     propEleven,
     propTwelve,
     propTwo,
     propThree,
-    /* horn3or11,
-    horn2or12, */
     big6,
     big8
 };
