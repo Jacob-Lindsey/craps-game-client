@@ -2,7 +2,7 @@
 
 ### Rules of the game
 
-* Pass Line
+* **Pass Line**
 
   An even money bet, made on the first roll of the dice (known as the “come out roll”). You win if a 7 or 11 roll, or lose if 2, 3, or 12 roll (known as “craps”). Any other number that rolls becomes the “point” and the point must roll again before a 7 to win.
 
