@@ -1,6 +1,6 @@
 ## In-browser Craps game
 
-### [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+### [Play the game here!](https://craps--game.herokuapp.com/ "Craps Game")
 
 ---
 
